@@ -575,8 +575,13 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-sm);
 }
 
+.stool > div {
+  display: flex;
+  flex-direction: column;
+}
+
 .stool strong {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.15rem;
 }
 
 .stool span {

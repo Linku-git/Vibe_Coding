@@ -164,7 +164,7 @@
       <!-- Codex -->
       <div class="tool-card tool-codex">
         <div class="tool-header">
-          <img class="tool-logo" src="https://cdn.simpleicons.org/openai/10a37f" alt="OpenAI">
+          <img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/codex.svg" alt="Codex">
           <h3>Codex</h3>
         </div>
         <p class="tool-desc">
@@ -184,7 +184,7 @@
       <!-- Antigravity -->
       <div class="tool-card tool-antigravity">
         <div class="tool-header">
-          <img class="tool-logo" src="https://cdn.simpleicons.org/google/4285F4" alt="Google">
+          <img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/antigravity.svg" alt="Antigravity">
           <h3>Antigravity</h3>
         </div>
         <p class="tool-desc">
@@ -204,9 +204,9 @@
     <!-- Supporting Tools -->
     <h3 class="sub-heading">Supporting Tools</h3>
     <div class="supporting-tools">
-      <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/openai/10a37f" alt="ChatGPT"><div><strong>ChatGPT</strong><span>Planning, PRD writing, architecture, prompts</span></div></div>
+      <div class="stool"><img class="stool-logo" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/chatgpt.svg" alt="ChatGPT"><div><strong>ChatGPT</strong><span>Planning, PRD writing, architecture, prompts</span></div></div>
       <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/git/F05032" alt="Git"><div><strong>Git</strong><span>Version control</span></div></div>
-      <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="VS Code"><div><strong>VS Code / JetBrains</strong><span>Code editing and inspection</span></div></div>
+      <div class="stool"><img class="stool-logo" src="https://unpkg.com/@lobehub/icons-static-svg@latest/icons/vscode.svg" alt="VS Code"><div><strong>VS Code / JetBrains</strong><span>Code editing and inspection</span></div></div>
       <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js"><div><strong>Node.js / Python</strong><span>Language runtimes</span></div></div>
       <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL"><div><strong>SQLite / PostgreSQL</strong><span>Local databases</span></div></div>
       <div class="stool"><img class="stool-logo" src="https://cdn.simpleicons.org/npm/CB3837" alt="npm"><div><strong>npm / pip / uv</strong><span>Package managers</span></div></div>
@@ -463,15 +463,6 @@ Include the exact commands I need to run.</pre>
           idea &rarr; PRD &rarr; docs &rarr; agents &rarr; sessions &rarr; implementation &rarr; tests &rarr; updated docs &rarr; next session
         </div>
 
-        <div class="exercise">
-          <h4>Practical Exercise</h4>
-          <p>Take a simple project idea and rewrite it in 3 forms:</p>
-          <ol>
-            <li><strong>Raw idea:</strong> "I want a recipe app"</li>
-            <li><strong>Product description:</strong> "A web app where users can save, search, and categorize personal recipes with ingredient-based filtering"</li>
-            <li><strong>Implementation-ready goal:</strong> "A React + Flask app with SQLite. Users can CRUD recipes, filter by ingredients, tag by category. Auth via session cookies. Responsive UI. Deployed locally."</li>
-          </ol>
-        </div>
       </div>
     </div>
 
@@ -578,15 +569,6 @@ Include the exact commands I need to run.</pre>
           <li>Optionally use <strong>Antigravity</strong> for autonomous or experimental flows</li>
         </ul>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Pick one project and decide:</p>
-          <ol>
-            <li>Why Claude Code or Codex fits as the primary tool</li>
-            <li>Where Antigravity could help</li>
-            <li>What should stay manual</li>
-          </ol>
-        </div>
       </div>
     </div>
 
@@ -736,10 +718,6 @@ Include the exact commands I need to run.</pre>
           </ul>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Create the full folder structure for a task management app. Include CLAUDE.md with project rules, stack choices, and development conventions.</p>
-        </div>
       </div>
     </div>
 
@@ -1125,16 +1103,6 @@ was chosen over alternatives for THIS specific project.</pre>
           <label><input type="checkbox"> Deployment target and platform defined</label>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Generate a PRD for a personal finance tracker app:</p>
-          <ol>
-            <li>Use the decision framework to select a tech stack first</li>
-            <li>Generate the full PRD including stack justification</li>
-            <li>Review it and fix at least 5 gaps</li>
-            <li>Verify the Tech Stack section explains WHY, not just WHAT</li>
-          </ol>
-        </div>
       </div>
     </div>
 
@@ -1632,16 +1600,6 @@ Never drop a production database.</pre>
           You can also explicitly tell Claude Code: <code>"Remember that we use Stripe for payments"</code>.
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>For your chosen project, create:</p>
-          <ol>
-            <li>A CLAUDE.md with agent rules and MCP tool boundaries</li>
-            <li>Three custom slash commands in <code>.claude/commands/</code>: <code>run-session</code>, <code>add-api-route</code>, and <code>run-tests</code></li>
-            <li>A <code>.claude/settings.json</code> with at least 2 MCP servers configured</li>
-            <li>An MCP documentation section in CLAUDE.md listing each server's purpose and boundaries</li>
-          </ol>
-        </div>
       </div>
     </div>
 
@@ -1750,10 +1708,6 @@ The file must enforce the following rules:
 Also create a CLAUDE.md version for Claude Code users.</pre>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Write both an agents.md and a CLAUDE.md for a blog platform project. Compare how each tool consumes these instructions differently.</p>
-        </div>
       </div>
     </div>
 
@@ -1814,10 +1768,6 @@ Always create:
 Make all files practical and implementation-oriented.</pre>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Generate the full documentation set for an e-commerce product listing API. Verify that each doc file contains actionable, implementation-ready content — not generic placeholders.</p>
-        </div>
       </div>
     </div>
 
@@ -2001,17 +1951,6 @@ Make all files practical and implementation-oriented.</pre>
           <li><strong>Version your design folder.</strong> Commit <code>/design</code> to git so the AI always has the latest approved designs.</li>
         </ul>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Set up a Stitch integration for a dashboard project:</p>
-          <ol>
-            <li>Create 3 screens in Stitch: Login, Dashboard, and Settings</li>
-            <li>Export as ZIP and organize in a <code>/design</code> folder</li>
-            <li>Add DESIGN.md reference to CLAUDE.md</li>
-            <li>Configure the Stitch MCP server in <code>.claude/settings.json</code></li>
-            <li>Test that your AI agent reads the design tokens before generating UI code</li>
-          </ol>
-        </div>
       </div>
     </div>
 
@@ -2108,10 +2047,6 @@ Project runs locally with no errors.
 - [ ] Test command documented</pre>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Create session files (01 through 15) for a URL shortener app, organized by phase (Foundation, Core Features, Advanced, Polish, Deployment). Each session must have a phase label, goals, tasks, files, tests, and a completion checklist.</p>
-        </div>
       </div>
     </div>
 
@@ -2202,10 +2137,6 @@ Update Docs/progress.md and the session file with:
           <strong>Critical Rule:</strong> Always constrain the AI to one session, one goal area, one validation cycle. That is how you avoid chaos.
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Write execution prompts for sessions 01-03 of your project. For Claude Code, also create the <code>/project:run-session</code> slash command. Execute session 01 and verify the results.</p>
-        </div>
       </div>
     </div>
 
@@ -2310,10 +2241,6 @@ ruff check .</pre>
           <p>This automatically lints after every file edit, catching issues immediately.</p>
         </div>
 
-        <div class="exercise">
-          <h4>Exercise</h4>
-          <p>Execute session 01 of your project. Run the full testing loop. Document every command and result in the session file. Fix any issues before moving to session 02.</p>
-        </div>
       </div>
     </div>
   </div>
