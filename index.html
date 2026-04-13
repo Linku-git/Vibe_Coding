@@ -21,6 +21,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#tools">Tools</a></li>
+      <li><a href="#concepts">Concepts</a></li>
       <li><a href="#modules">Modules</a></li>
       <li><a href="#workflow">Workflow</a></li>
       <li><a href="#prompts">Prompts</a></li>
@@ -211,6 +212,177 @@
       <div class="stool"><strong>npm / pip / uv</strong><span>Package managers</span></div>
       <div class="stool"><strong>pytest / Vitest / Jest</strong><span>Testing frameworks</span></div>
       <div class="stool"><strong>Prettier / ESLint / Ruff</strong><span>Formatters and linters</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONCEPTS SECTION ========== -->
+<section id="concepts" class="section">
+  <div class="container">
+    <h2 class="section-title">Key Concepts &amp; Tools Explained</h2>
+    <p class="section-intro">Before diving into the modules, understand the building blocks that make AI-assisted development work. These concepts appear throughout the course.</p>
+
+    <div class="two-col">
+      <!-- Skills -->
+      <div class="card">
+        <h3>Skills</h3>
+        <p>Skills are <strong>plain markdown files</strong> that teach the AI how to perform a specific task — step by step. They live in <code>.claude/commands/</code> and require no server, API, or dependencies.</p>
+        <p>Think of skills as <strong>checklists for your AI</strong>. Instead of explaining a workflow every time, you write it once as a skill and reuse it with a slash command.</p>
+        <h4>Examples</h4>
+        <ul>
+          <li><code>/project:run-session 03</code> — execute a coding session following all project rules</li>
+          <li><code>/project:add-api-route</code> — add a backend route with validation, tests, and docs</li>
+          <li><code>/project:review-code</code> — scan for security, performance, and convention issues</li>
+          <li><code>/project:run-tests</code> — run full test suite and report structured results</li>
+        </ul>
+        <p><strong>Key point:</strong> Skills encode <em>procedural knowledge</em> — how to do things the right way, every time.</p>
+      </div>
+
+      <!-- Agents -->
+      <div class="card">
+        <h3>Agents</h3>
+        <p>An agent is a <strong>set of behavioral rules</strong> that define how the AI approaches work. Agents don't write code — they define the <em>discipline</em> around how code gets written.</p>
+        <p>Agent rules answer: What should I read first? When should I test? What should I update? When should I stop?</p>
+        <h4>Examples</h4>
+        <ul>
+          <li><strong>Research agent:</strong> "Explore the codebase and find all API endpoints — report only, change nothing"</li>
+          <li><strong>Implementation agent:</strong> "Implement session-06, follow the PRD, run tests, update docs"</li>
+          <li><strong>Testing agent:</strong> "Run all tests, classify each failure, suggest fixes but don't apply them"</li>
+        </ul>
+        <p><strong>Where they live:</strong> <code>CLAUDE.md</code> (Claude Code) or <code>agents.md</code> (Codex / Antigravity). The AI reads these rules automatically at conversation start.</p>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <!-- MCP Servers -->
+      <div class="card">
+        <h3>MCP Servers</h3>
+        <p><strong>MCP (Model Context Protocol)</strong> is a standardized way to connect AI agents to external tools and data sources. An MCP server is a small program that exposes tools the AI can call — like functions.</p>
+        <p>Without MCP, the AI can only read files and run terminal commands. With MCP, it can query databases, create GitHub PRs, pull designs from Stitch, browse the web, and more.</p>
+        <h4>Examples</h4>
+        <ul>
+          <li><strong>GitHub MCP</strong> — create PRs, manage issues, review code</li>
+          <li><strong>PostgreSQL MCP</strong> — query database, inspect schema</li>
+          <li><strong>Playwright MCP</strong> — browser automation, take screenshots, fill forms</li>
+          <li><strong>Stitch MCP</strong> — pull UI designs and design tokens from Google Stitch</li>
+          <li><strong>Slack MCP</strong> — read channels, post status updates</li>
+          <li><strong>Linear MCP</strong> — sync with project management tickets</li>
+        </ul>
+        <p><strong>Key point:</strong> MCP gives the AI <em>access to tools</em>. Skills tell it <em>how to use them well</em>. You need both.</p>
+      </div>
+
+      <!-- Memory -->
+      <div class="card">
+        <h3>Memory</h3>
+        <p>Memory is the AI's <strong>persistent context layer</strong>. It remembers decisions, preferences, and project conventions across separate conversations.</p>
+        <p>Without memory, every new conversation starts from zero. With memory, the AI remembers that you use React Query, that all routes need validation, and that you prefer concise responses.</p>
+        <h4>Good Memory Items</h4>
+        <ul>
+          <li>"Use React Query for server state"</li>
+          <li>"All API routes must have Pydantic validation"</li>
+          <li>"Deployment target is Vercel"</li>
+        </ul>
+        <h4>Bad Memory Items</h4>
+        <ul>
+          <li>Temporary debugging notes</li>
+          <li>One-time error messages</li>
+          <li>Things already written in CLAUDE.md</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub-heading">Essential Development Tools</h3>
+    <p>Beyond AI coding agents, these tools form the backbone of a professional vibe coding workflow:</p>
+
+    <div class="tools-grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Docker</h3>
+        </div>
+        <p class="tool-desc">Containerizes your app so it runs identically everywhere — your machine, CI, staging, production. Essential for complex backends with databases, caches, and queues.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>Your project has PostgreSQL, Redis, or other services</li>
+          <li>You need consistent environments across team members</li>
+          <li>Deployment target requires containers (AWS ECS, Railway, Fly.io)</li>
+          <li>You want one-command dev setup: <code>docker compose up</code></li>
+        </ul>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Obsidian</h3>
+        </div>
+        <p class="tool-desc">A markdown-based knowledge base for planning and research. Perfect for brainstorming features, collecting requirements, and organizing project notes before they become a PRD.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>Pre-PRD brainstorming and research</li>
+          <li>Collecting user feedback and feature ideas</li>
+          <li>Personal knowledge management across projects</li>
+          <li>Linking related concepts (bidirectional links)</li>
+        </ul>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Git &amp; GitHub</h3>
+        </div>
+        <p class="tool-desc">Version control is non-negotiable. Every session should produce a commit. GitHub adds PRs, issues, and CI/CD. Claude Code integrates directly with git for commits, branches, and worktrees.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>Always — every project, no exceptions</li>
+          <li>Commit after every completed session</li>
+          <li>Use branches for experimental sessions</li>
+          <li>Use GitHub Issues to track session-level tasks</li>
+        </ul>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Google Stitch</h3>
+        </div>
+        <p class="tool-desc">AI-powered design tool that generates high-fidelity UI screens from text descriptions. Outputs a DESIGN.md file with design tokens that AI coding tools can consume directly.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>You need consistent UI across your entire app</li>
+          <li>You want a design system before writing frontend code</li>
+          <li>You need design-to-code via MCP or ZIP export</li>
+          <li>You want to iterate on design faster than in code</li>
+        </ul>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Postman / Hoppscotch</h3>
+        </div>
+        <p class="tool-desc">API testing tools for manually testing backend routes. Essential for verifying your API works before connecting the frontend. Hoppscotch is the free, open-source alternative.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>Testing backend routes before building frontend</li>
+          <li>Debugging API responses and error codes</li>
+          <li>Documenting API contracts with examples</li>
+          <li>Sharing API collections with team members</li>
+        </ul>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-header">
+          <h3>Supabase / Firebase</h3>
+        </div>
+        <p class="tool-desc">Backend-as-a-Service platforms that provide database, auth, storage, and real-time subscriptions out of the box. Great for rapid prototyping or when you want to skip building a custom backend.</p>
+        <h4>When to Use</h4>
+        <ul>
+          <li>Rapid prototyping — need auth and DB in minutes</li>
+          <li>Solo developer who wants to focus on frontend</li>
+          <li>Real-time features without building WebSocket infra</li>
+          <li>Supabase for PostgreSQL; Firebase for NoSQL</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="key-lesson">
+      <h3>How It All Fits Together</h3>
+      <p><strong>Agents</strong> define the rules. <strong>Skills</strong> encode the procedures. <strong>MCP Servers</strong> provide the connections. <strong>Memory</strong> maintains context. <strong>Tools</strong> (Docker, Git, Stitch, etc.) provide the infrastructure. Together, they turn AI into a disciplined team member — not a random code generator.</p>
     </div>
   </div>
 </section>
