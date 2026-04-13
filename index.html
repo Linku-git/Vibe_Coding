@@ -380,9 +380,42 @@
       </div>
     </div>
 
+    <div class="golden-rule">
+      <strong>When Something Fails or Requires Manual Setup — Always Ask AI How</strong>
+    </div>
+    <div class="info-box info-claude">
+      <p>AI agents can't do everything. Some steps require <strong>manual action from you</strong> — installing a program, creating an API key, configuring a cloud service, or fixing a permission issue. <strong>That's normal.</strong> The key rule is:</p>
+      <p style="font-size:1.1rem; text-align:center; margin:1rem 0;"><strong>If the AI can't do it for you, ask the AI to tell you exactly how to do it yourself.</strong></p>
+      <p>Never get stuck silently. The AI is your guide even when it can't be your hands.</p>
+      <h4>Common Situations That Require Manual Steps</h4>
+      <ul>
+        <li><strong>API key setup:</strong> "The GitHub MCP needs a personal access token. How do I create one and where do I put it?"</li>
+        <li><strong>Installation failures:</strong> "npm install failed with a permission error. What should I do step by step?"</li>
+        <li><strong>Cloud configuration:</strong> "I need to enable the Stitch API in Google Cloud. Walk me through the exact steps."</li>
+        <li><strong>Database setup:</strong> "PostgreSQL isn't running on my machine. How do I install and start it on Windows/Mac?"</li>
+        <li><strong>Environment variables:</strong> "The app needs a STRIPE_SECRET_KEY. How do I get one and where does it go?"</li>
+        <li><strong>Docker issues:</strong> "Docker Desktop won't start. How do I troubleshoot this?"</li>
+        <li><strong>Auth/OAuth flows:</strong> "The Slack MCP needs a bot token. How do I create a Slack app and get the token?"</li>
+        <li><strong>Deployment:</strong> "I need to deploy to Vercel for the first time. Guide me through linking my repo."</li>
+      </ul>
+      <h4>How to Ask</h4>
+      <p>Be specific about your error. Don't just say "it doesn't work." Instead:</p>
+      <div class="prompt-block">
+<pre>I tried to run [command] and got this error:
+[paste the exact error message]
+
+My OS is [Windows/Mac/Linux].
+I'm using [tool/version].
+
+Give me step-by-step instructions to fix this.
+Include the exact commands I need to run.</pre>
+      </div>
+      <p style="margin-top:1rem">The AI will give you precise, copy-paste-ready instructions for your specific situation. This applies to every tool in this course — Docker, Git, MCP servers, Stitch, databases, deployment platforms, and anything else that needs manual configuration.</p>
+    </div>
+
     <div class="key-lesson">
       <h3>How It All Fits Together</h3>
-      <p><strong>Agents</strong> define the rules. <strong>Skills</strong> encode the procedures. <strong>MCP Servers</strong> provide the connections. <strong>Memory</strong> maintains context. <strong>Tools</strong> (Docker, Git, Stitch, etc.) provide the infrastructure. Together, they turn AI into a disciplined team member — not a random code generator.</p>
+      <p><strong>Agents</strong> define the rules. <strong>Skills</strong> encode the procedures. <strong>MCP Servers</strong> provide the connections. <strong>Memory</strong> maintains context. <strong>Tools</strong> (Docker, Git, Stitch, etc.) provide the infrastructure. Together, they turn AI into a disciplined team member — not a random code generator. And when something needs manual setup, <strong>the AI is your step-by-step guide</strong>.</p>
     </div>
   </div>
 </section>
