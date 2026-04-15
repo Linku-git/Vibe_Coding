@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 03 — Project Folder &amp; Environment Setup — Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="03">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 03 of 11</span>
+    <h1>Project Folder &amp; Environment Setup</h1>
+    <p class="hero-sub">Set up a project so AI can work cleanly and predictably.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+        <div class="golden-rule">
+          <strong>Golden Rule:</strong> Never start with a messy folder.
+        </div>
+
+        <h4>Standard Project Structure</h4>
+        <div class="code-block">
+          <div class="code-header">Full-stack project</div>
+<pre>my-project/
+├─ Docs/
+│  ├─ prd.md
+│  ├─ agents.md
+│  ├─ architecture.md
+│  ├─ progress.md
+│  ├─ readme.md
+│  ├─ api-routes.md
+│  ├─ frontend-pages.md
+│  ├─ backend-structure.md
+│  ├─ testing-strategy.md
+│  └─ sessions/
+│     ├─ session-01.md
+│     ├─ session-02.md
+│     └─ ...
+├─ frontend/
+├─ backend/
+├─ shared/
+├─ scripts/
+├─ tests/
+├─ <span class="hl-file">CLAUDE.md</span>          <span class="code-comment"># Claude Code project rules</span>
+├─ .env.example
+├─ .gitignore
+├─ package.json
+└─ README.md</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">Simple project</div>
+<pre>my-project/
+├─ Docs/
+│  ├─ prd.md
+│  ├─ agents.md
+│  ├─ progress.md
+│  ├─ readme.md
+│  └─ sessions/
+├─ app/
+├─ tests/
+├─ <span class="hl-file">CLAUDE.md</span>
+└─ .env.example</pre>
+        </div>
+
+        <h4>Setup Steps</h4>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Create a fresh folder and initialize Git</strong>
+              <div class="code-inline">mkdir my-project && cd my-project && git init</div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Create docs structure</strong>
+              <div class="code-inline">mkdir -p Docs/sessions</div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Create base files</strong>
+              <div class="code-inline">touch Docs/prd.md Docs/agents.md Docs/progress.md Docs/readme.md</div>
+              <div class="code-inline">touch .env.example .gitignore CLAUDE.md</div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">4</span>
+            <div>
+              <strong>Install runtime and dependencies for your stack</strong>
+              <p>React: <code>npm init</code> / Flask: <code>python -m venv .venv</code></p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">5</span>
+            <div>
+              <strong>Set up linting, formatting, and tests early</strong>
+              <p>Critical — AI code becomes harder to control if validation comes too late.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Claude Code Setup: CLAUDE.md</h4>
+        <div class="info-box info-claude">
+          <p>Claude Code uses <code>CLAUDE.md</code> as project-level instructions. Place it in your project root:</p>
+          <div class="code-block">
+            <div class="code-header">CLAUDE.md</div>
+<pre># Project: My App
+
+## Stack
+- Frontend: React + TypeScript
+- Backend: Flask + Python 3.12
+- Database: SQLite (local), PostgreSQL (prod)
+
+## Development Rules
+- Always read Docs/prd.md before implementing features
+- Work in atomic sessions defined in Docs/sessions/
+- Run tests after every change
+- Update Docs/progress.md after every session
+
+## Conventions
+- Use React Query for server state
+- All backend routes must have schema validation
+- All forms must have validation and clear error messages
+- Use SQLite during local development
+
+## Commands
+- Frontend dev: `cd frontend && npm run dev`
+- Backend dev: `cd backend && flask run`
+- Tests: `npm test` / `pytest`
+- Lint: `npm run lint` / `ruff check .`</pre>
+          </div>
+        </div>
+
+        <h4>Important Rule</h4>
+        <div class="warning-box">
+          <p>Before asking AI to code, you should already have:</p>
+          <ul>
+            <li>Folder structure</li>
+            <li>Stack choice</li>
+            <li>prd.md</li>
+            <li>agents.md / CLAUDE.md</li>
+            <li>Base session plan</li>
+            <li>Run/test commands</li>
+          </ul>
+        </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reference Prompt Library — Vibe Coding Process</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">10 Prompts &middot; Copy-Paste Ready</span>
+    <h1>Reference Prompt Library</h1>
+    <p class="hero-sub">Copy-paste ready prompts for every stage of the Vibe Coding workflow.</p>
+  </div>
+</header>
+
+<!-- ========== PROMPTS SECTION ========== -->
+<section id="prompts" class="section">
+  <div class="container">
+    <h2 class="section-title">Reference Prompt Library</h2>
+    <p class="section-intro">Copy-paste ready prompts for every stage of the vibe coding workflow.</p>
+
+    <div class="prompt-gallery">
+      <!-- Prompt A -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-a" class="prompt-toggle">
+        <label for="prompt-a" class="prompt-card-header">
+          <span class="prompt-label">A</span>
+          <h4>Create PRD</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>I want to build a [project idea].
+
+Generate a detailed implementation-ready prd.md in markdown.
+Include:
+- overview
+- goals
+- users
+- core features
+- functional requirements
+- non-functional requirements
+- frontend pages if applicable
+- backend routes/modules if applicable
+- data models
+- risks
+- milestones
+- acceptance criteria</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt B -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-b" class="prompt-toggle">
+        <label for="prompt-b" class="prompt-card-header">
+          <span class="prompt-label">B</span>
+          <h4>Create Agent Rules</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read @prd.md
+
+Create an agents.md file that defines how AI coding
+agents must work on this project.
+
+Enforce:
+- read PRD first
+- work in small sessions
+- keep Docs updated after each session
+- log tests, errors, fixes, pending issues
+- do not skip verification
+- do not implement future sessions early
+- keep documentation synchronized with implementation
+
+Also create a CLAUDE.md version for Claude Code users
+that includes project conventions, stack details,
+and run/test commands.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt C -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-c" class="prompt-toggle">
+        <label for="prompt-c" class="prompt-card-header">
+          <span class="prompt-label">C</span>
+          <h4>Create Docs &amp; Sessions</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read @prd.md and create the full documentation
+structure for this project.
+
+Create:
+- Docs/architecture.md
+- Docs/progress.md
+- Docs/readme.md
+- Docs/testing-strategy.md
+
+If backend exists:
+- Docs/api-routes.md
+- Docs/backend-structure.md
+
+If frontend exists:
+- Docs/frontend-pages.md
+
+Also create session files in Docs/sessions/:
+- Simple projects: session-01.md through session-10.md
+- Complex projects: session-01.md through session-20.md (or more)
+
+Organize sessions by phase:
+- Phase 1: Foundation (bootstrap, DB, auth backend)
+- Phase 2: Core Features (auth frontend, CRUD, main features)
+- Phase 3: Advanced Features (search, uploads, real-time)
+- Phase 4: Integration &amp; Polish (validation, responsive, performance)
+- Phase 5: Testing &amp; Deployment (E2E tests, cleanup, deploy)
+
+Each session must have: phase label, goals, tasks, files
+to create/update, tests to run, and completion checklist.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt D -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-d" class="prompt-toggle">
+        <label for="prompt-d" class="prompt-card-header">
+          <span class="prompt-label">D</span>
+          <h4>Execute One Session</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read:
+- Docs/prd.md
+- Docs/agents.md
+- Docs/sessions/session-04.md
+
+Implement only session 04.
+Run relevant tests.
+Update the docs.
+Report:
+- files changed
+- commands run
+- test results
+- errors found
+- fixes applied
+- remaining issues</pre>
+          </div>
+          <h5 style="margin-top:1rem">Claude Code Version</h5>
+          <div class="prompt-block" style="background:var(--claude-bg)">
+<pre>Complete session 04.
+Follow CLAUDE.md rules.
+Run tests and update docs when done.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt E — Claude Code specific -->
+      <div class="prompt-card prompt-card-claude">
+        <input type="checkbox" id="prompt-e" class="prompt-toggle">
+        <label for="prompt-e" class="prompt-card-header">
+          <span class="prompt-label">E</span>
+          <h4>Claude Code: Setup Slash Command</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="code-block">
+            <div class="code-header">.claude/commands/run-session.md</div>
+<pre>Read Docs/sessions/session-$ARGUMENTS.md
+
+Complete only this session following CLAUDE.md rules.
+Make small, atomic, testable changes.
+Run all relevant tests after implementation.
+Update these files:
+- Docs/progress.md (mark completed tasks)
+- Docs/sessions/session-$ARGUMENTS.md (add notes)
+- Docs/api-routes.md (if routes changed)
+- Docs/frontend-pages.md (if UI changed)
+
+Report: files changed, tests run, errors, fixes, blockers.</pre>
+          </div>
+          <p style="margin-top:0.75rem">Usage: <code>/project:run-session 03</code></p>
+        </div>
+      </div>
+    </div>
+
+      <!-- Prompt F -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-f" class="prompt-toggle">
+        <label for="prompt-f" class="prompt-card-header">
+          <span class="prompt-label">F</span>
+          <h4>Generate Tech Stack Selection</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>I want to build a [project type] with these requirements:
+- [requirement 1]
+- [requirement 2]
+- [requirement 3]
+
+Expected scale: [number of users / traffic level]
+Team expertise: [languages and frameworks the team knows]
+Deployment target: [Vercel / AWS / Docker / Railway / etc.]
+Timeline: [MVP in X weeks / full product in X months]
+
+Recommend a complete tech stack with justification:
+
+1. Frontend: framework, state management, styling approach
+2. Backend: framework, API style (REST/GraphQL), auth strategy
+3. Database: primary DB, caching layer, session storage
+4. Testing: unit, integration, and E2E tools per layer
+5. DevOps: linter, formatter, CI/CD, deployment platform
+6. Key libraries: auth, payments, email, file uploads, real-time
+
+For each choice:
+- Explain WHY this technology over alternatives
+- List one risk or limitation to watch for
+- Suggest a fallback if the primary choice doesn't work out
+
+Output as a "Tech Stack" section ready to paste into prd.md.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt G -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-g" class="prompt-toggle">
+        <label for="prompt-g" class="prompt-card-header">
+          <span class="prompt-label">G</span>
+          <h4>Generate Complex Session Plan (15-30 sessions)</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read @prd.md
+
+This is a complex project that needs 15-30 coding sessions.
+Break it into phased sessions:
+
+Phase 1 — Foundation (sessions 01-03):
+  Bootstrap, database setup, auth backend
+
+Phase 2 — Core Features (sessions 04-08):
+  Auth frontend, main layouts, primary CRUD (backend + frontend)
+
+Phase 3 — Advanced Features (sessions 09-12):
+  Search/filtering, file uploads, notifications, real-time
+
+Phase 4 — Integration &amp; Polish (sessions 13-16):
+  Validation, error states, responsive design, accessibility,
+  performance optimization
+
+Phase 5 — Testing &amp; Deployment (sessions 17-20):
+  E2E tests, security hardening, CI/CD setup, deployment,
+  monitoring, documentation finalization
+
+Rules for each session:
+- One clear goal area (never mix backend + frontend in one session)
+- Maximum 5-7 tasks per session
+- Each session must be independently testable
+- Include the phase label in each session file
+- List specific files to create/modify
+- List specific tests to run
+- Include a completion checklist
+
+Generate all session files as Docs/sessions/session-XX.md</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt H -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-h" class="prompt-toggle">
+        <label for="prompt-h" class="prompt-card-header">
+          <span class="prompt-label">H</span>
+          <h4>Mid-Project Architecture Review</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read:
+- Docs/prd.md
+- Docs/architecture.md
+- Docs/progress.md
+- All completed session files in Docs/sessions/
+
+Perform a mid-project architecture review:
+
+1. PRD Alignment Check
+   - Which PRD requirements are fully implemented?
+   - Which are partially done? What's missing?
+   - Any features that drifted from the PRD?
+
+2. Architecture Health
+   - Are there any circular dependencies?
+   - Is the file structure still clean and consistent?
+   - Are naming conventions followed everywhere?
+   - Any code that should be refactored before continuing?
+
+3. Test Coverage
+   - What percentage of routes/components have tests?
+   - Which critical paths are untested?
+   - Are there any flaky or skipped tests?
+
+4. Documentation Freshness
+   - Is progress.md accurate?
+   - Are api-routes.md and frontend-pages.md up to date?
+   - Any stale or contradictory documentation?
+
+5. Technical Debt
+   - List all TODOs and FIXMEs in the codebase
+   - Identify hardcoded values that should be config
+   - Flag any security concerns
+
+6. Recommendations
+   - What should be fixed before continuing?
+   - Should any remaining sessions be re-scoped?
+   - Priority order for fixes
+
+Output as a structured report. Do NOT make changes — report only.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt I -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-i" class="prompt-toggle">
+        <label for="prompt-i" class="prompt-card-header">
+          <span class="prompt-label">I</span>
+          <h4>Design System Integration (Stitch)</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read design/DESIGN.md for the complete design system.
+
+Integrate the design tokens into the codebase:
+
+1. Design Tokens
+   - Extract all color tokens and create CSS variables / theme config
+   - Extract typography tokens (font families, sizes, weights, line heights)
+   - Extract spacing tokens (padding, margin, gap values)
+   - Extract border radius, shadow, and animation tokens
+
+2. Component Mapping
+   - For each component in design/components/:
+     - Create a matching frontend component
+     - Apply exact design tokens (no hardcoded values)
+     - Include all states: default, hover, active, disabled, loading
+     - Ensure responsive behavior matches design
+
+3. Screen Implementation
+   - For each screen in design/screens/:
+     - Build the page layout matching the design exactly
+     - Use the component library created above
+     - Match spacing, alignment, and visual hierarchy
+
+4. Verification
+   - Compare each implemented screen to the design screenshot
+   - List any deviations with justification
+   - Run visual regression tests if available
+
+Do not invent colors, spacing, or layouts not in DESIGN.md.
+If something is ambiguous, flag it rather than guessing.</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt J -->
+      <div class="prompt-card">
+        <input type="checkbox" id="prompt-j" class="prompt-toggle">
+        <label for="prompt-j" class="prompt-card-header">
+          <span class="prompt-label">J</span>
+          <h4>Deployment &amp; Production Readiness</h4>
+          <span class="prompt-expand">+</span>
+        </label>
+        <div class="prompt-card-body">
+          <div class="prompt-block">
+<pre>Read:
+- Docs/prd.md
+- Docs/architecture.md
+- Docs/testing-strategy.md
+
+Prepare the project for production deployment:
+
+1. Environment Configuration
+   - Verify all secrets use environment variables (no hardcoded values)
+   - Create .env.example with all required variables documented
+   - Ensure dev/staging/production configs are separated
+
+2. Build Optimization
+   - Run production build and fix any build errors
+   - Check bundle size and identify optimization opportunities
+   - Ensure all assets are optimized (images, fonts)
+   - Verify tree-shaking is working
+
+3. Security Checklist
+   - HTTPS enforced
+   - CORS configured correctly
+   - Rate limiting on API endpoints
+   - Input validation on all user inputs
+   - SQL injection protection verified
+   - XSS protection headers set
+   - Authentication tokens properly secured
+   - Sensitive data not logged
+
+4. CI/CD Setup
+   - Create GitHub Actions workflow (or equivalent)
+   - Run linter, type checker, and tests on every PR
+   - Auto-deploy to staging on merge to main
+   - Manual promotion to production
+
+5. Monitoring
+   - Error tracking setup (Sentry or equivalent)
+   - Health check endpoint: GET /api/health
+   - Key metrics to monitor: response time, error rate, uptime
+
+6. Documentation
+   - Update Docs/readme.md with deployment instructions
+   - Document rollback procedure
+   - List all external service dependencies
+
+Generate a Docs/deployment.md with the complete checklist
+and implementation status for each item.</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- old inline script removed --><!-- 
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.querySelector('.theme-toggle').textContent = next === 'light' ? '\u2600' : '\u263E';
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    var btn = document.querySelector('.theme-toggle');
+    if (btn) btn.textContent = saved === 'light' ? '\u2600' : '\u263E';
+  }
+})();
+-->
+
+</body>
+</html>

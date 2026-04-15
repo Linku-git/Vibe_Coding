@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 08 - Using Google Stitch for Design-to-Code - Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="8">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 08 of 11</span>
+    <h1>Using Google Stitch for Design-to-Code</h1>
+    <p class="hero-sub">Integrate AI-generated designs into your development workflow using Google Stitch.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+
+        <h4>What is Google Stitch?</h4>
+        <p><strong>Google Stitch</strong> is a free, AI-powered design tool from Google Labs that uses Gemini to generate high-fidelity UI screens from plain English descriptions or reference images. It bridges the gap between "I have an idea" and "here's a working UI" — and it outputs a <code>DESIGN.md</code> file that AI coding tools can consume directly.</p>
+
+        <div class="key-lesson">
+          <h4>Why Stitch Matters for Vibe Coding</h4>
+          <p>Without a design reference, AI generates inconsistent UIs — different colors on each page, mismatched spacing, random layouts. Stitch gives your AI agent a <strong>single source of design truth</strong>: a DESIGN.md file with exact tokens, components, and rules to follow.</p>
+        </div>
+
+        <h4>Two Integration Methods</h4>
+
+        <h5>Method 1: MCP Connection (Recommended)</h5>
+        <p>Connect Stitch directly to your AI coding tool via MCP. The agent can pull designs, extract tokens, and generate matching code — all without manual file management.</p>
+
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Enable the Stitch API in Google Cloud</strong>
+              <p>Go to Google Cloud Console, enable the Stitch API for your project.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Configure local authentication</strong>
+              <div class="code-inline">gcloud auth application-default login</div>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Add the MCP server to your AI tool</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json — Stitch MCP</div>
+<pre>{
+  "mcpServers": {
+    "stitch": {
+      "command": "npx",
+      "args": ["-y", "stitch-mcp"],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "your-project-id"
+      }
+    }
+  }
+}</pre>
+        </div>
+
+        <p><strong>Available MCP Tools:</strong></p>
+        <ul>
+          <li><code>list_projects</code> — Browse your Stitch projects</li>
+          <li><code>list_screens</code> — List all screens in a project</li>
+          <li><code>extract_design_context</code> — Scan screens and extract design tokens (colors, fonts, spacing)</li>
+          <li><code>fetch_screen_code</code> — Download the raw HTML/CSS/React code for a screen</li>
+          <li><code>fetch_screen_image</code> — Download high-resolution screenshots</li>
+          <li><code>generate_screen_from_text</code> — Create new screens from text prompts</li>
+        </ul>
+
+        <div class="info-box info-claude">
+          <strong>Claude Code Workflow:</strong> Design screens in Stitch using natural language &rarr; Stitch MCP pulls the DESIGN.md and screen code &rarr; Claude Code generates production code that matches the design exactly &rarr; Consistent UI across the entire app.
+        </div>
+
+        <h5>Method 2: ZIP Export + Design Folder</h5>
+        <p>If you prefer manual control or don't want MCP, export your Stitch project as a ZIP file and add it to your repo.</p>
+
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Export from Stitch</strong>
+              <p>In Stitch, click Export &rarr; Download as ZIP. This gives you HTML files and image assets.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Extract to a <code>/design</code> folder in your project</strong>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Reference the design folder in CLAUDE.md</strong>
+              <p>Add a section telling the AI to read <code>design/DESIGN.md</code> before generating any UI code.</p>
+            </div>
+          </div>
+        </div>
+
+        <h4>Updated Project Structure with Design Folder</h4>
+        <div class="code-block">
+          <div class="code-header">Project structure with Stitch designs</div>
+<pre>my-project/
+├─ Docs/
+│  ├─ prd.md
+│  ├─ sessions/
+│  └─ ...
+├─ <span class="hl-file">design/</span>                <span class="code-comment"># Stitch exports live here</span>
+│  ├─ <span class="hl-file">DESIGN.md</span>           <span class="code-comment"># Design system: tokens, components, rules</span>
+│  ├─ tokens/              <span class="code-comment"># Color, typography, spacing tokens</span>
+│  ├─ screens/             <span class="code-comment"># Exported screen HTML/images</span>
+│  │  ├─ login.html
+│  │  ├─ dashboard.html
+│  │  └─ profile.html
+│  └─ components/          <span class="code-comment"># Reusable component exports</span>
+├─ frontend/
+├─ backend/
+├─ CLAUDE.md
+└─ ...</pre>
+        </div>
+
+        <h4>CLAUDE.md Addition for Design Reference</h4>
+        <div class="code-block">
+          <div class="code-header">Add to CLAUDE.md</div>
+<pre>## Design System
+- ALWAYS read design/DESIGN.md before creating or modifying UI
+- Match colors, typography, and spacing from design tokens exactly
+- Use the component patterns from design/components/ as reference
+- Check design/screens/ for the intended layout of each page
+- Do not invent new colors or spacing — use only defined tokens
+- If a screen is not in the design folder, ask before implementing</pre>
+        </div>
+
+        <h4>Configuration Per AI Tool</h4>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>MCP Method</th>
+                <th>ZIP Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Claude Code</strong></td>
+                <td>Add <code>stitch</code> MCP to <code>.claude/settings.json</code>. Agent auto-pulls designs.</td>
+                <td>Add <code>/design</code> folder. Reference <code>design/DESIGN.md</code> in CLAUDE.md.</td>
+              </tr>
+              <tr>
+                <td><strong>Codex</strong></td>
+                <td>MCP not supported. Use ZIP method.</td>
+                <td>Add <code>/design</code> folder. Reference in <code>agents.md</code>: "Read design/DESIGN.md before UI work."</td>
+              </tr>
+              <tr>
+                <td><strong>Antigravity</strong></td>
+                <td>Native Google integration. Add Stitch MCP in project settings.</td>
+                <td>Add <code>/design</code> folder. Reference in <code>agents.md</code>.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Best Practices</h4>
+        <div class="golden-rule">
+          <strong>Lock design tokens early.</strong> Decide on your colors, typography, and spacing before generating additional screens. Changing tokens later means regenerating everything.
+        </div>
+        <ul>
+          <li><strong>Iterate in Stitch first, then hand to code AI.</strong> It's faster to fix a layout in Stitch than to rewrite generated code.</li>
+          <li><strong>Treat Stitch output as a foundation, not finished code.</strong> Clean up, integrate with your component library, and apply your conventions.</li>
+          <li><strong>Extract reusable components.</strong> Don't re-export the same button 20 times. Extract it once and reference it.</li>
+          <li><strong>Use specific prompts in Stitch.</strong> "A dashboard with a sidebar nav, 4 KPI cards, a data table, and a line chart" beats "a dashboard."</li>
+          <li><strong>Version your design folder.</strong> Commit <code>/design</code> to git so the AI always has the latest approved designs.</li>
+        </ul>
+
+      </div>
+    </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

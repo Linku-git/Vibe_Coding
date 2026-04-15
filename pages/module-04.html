@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 04 — Creating a Strong PRD &amp; Selecting Your Tech Stack — Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="04">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 04 of 11</span>
+    <h1>Creating a Strong PRD &amp; Selecting Your Tech Stack</h1>
+    <p class="hero-sub">Turn an idea into an implementation-ready PRD — including the right tech stack for your project.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+        <h4>What is prd.md?</h4>
+        <p>The single source of truth for: project purpose, users, features, flows, constraints, technical assumptions, and success criteria — <strong>including your tech stack decision</strong>.</p>
+
+        <div class="golden-rule">
+          <strong>Stack selection is part of the PRD, not a separate step.</strong> Your tech stack shapes every session, every test, and every folder. Decide it here, document it here, and never revisit it mid-project without a strong reason.
+        </div>
+
+        <h4>Step 1: Select Your Tech Stack</h4>
+        <p>Before writing the full PRD, decide on your technologies. Use the reference tables below, then document your choices in the PRD's Tech Stack section.</p>
+
+        <h5>Frontend Technologies</h5>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Technology</th>
+                <th>Best For</th>
+                <th>Learning Curve</th>
+                <th>SSR Support</th>
+                <th>Recommended When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>React</strong></td>
+                <td>SPAs, dashboards, complex UI</td>
+                <td>Medium</td>
+                <td class="partial">&#9711; (via Next.js)</td>
+                <td>Large ecosystem needed, hiring pool matters</td>
+              </tr>
+              <tr>
+                <td><strong>Next.js</strong></td>
+                <td>Full-stack React, SEO-critical apps</td>
+                <td>Medium</td>
+                <td class="yes">&#10003;</td>
+                <td>You need SSR/ISR, API routes, and React in one framework</td>
+              </tr>
+              <tr>
+                <td><strong>Vue / Nuxt</strong></td>
+                <td>Progressive adoption, smaller teams</td>
+                <td>Low-Medium</td>
+                <td class="yes">&#10003; (Nuxt)</td>
+                <td>Simpler mental model preferred, gentle learning curve</td>
+              </tr>
+              <tr>
+                <td><strong>SvelteKit</strong></td>
+                <td>Performance-critical, lightweight apps</td>
+                <td>Low</td>
+                <td class="yes">&#10003;</td>
+                <td>Bundle size matters, less boilerplate preferred</td>
+              </tr>
+              <tr>
+                <td><strong>Angular</strong></td>
+                <td>Enterprise apps, large teams</td>
+                <td>High</td>
+                <td class="yes">&#10003;</td>
+                <td>Strong typing and opinionated structure needed at scale</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>Backend Technologies</h5>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Technology</th>
+                <th>Best For</th>
+                <th>Performance</th>
+                <th>Ecosystem</th>
+                <th>Recommended When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Node.js / Express</strong></td>
+                <td>REST APIs, real-time apps</td>
+                <td>Good</td>
+                <td>Massive</td>
+                <td>JavaScript full-stack, real-time features (Socket.io)</td>
+              </tr>
+              <tr>
+                <td><strong>NestJS</strong></td>
+                <td>Enterprise Node.js, structured APIs</td>
+                <td>Very Good</td>
+                <td>Large</td>
+                <td>You want Angular-style structure in Node.js backend</td>
+              </tr>
+              <tr>
+                <td><strong>Python / Flask</strong></td>
+                <td>Lightweight APIs, prototypes, ML integration</td>
+                <td>Good</td>
+                <td>Large</td>
+                <td>Simple REST API, Python team, ML/data science adjacent</td>
+              </tr>
+              <tr>
+                <td><strong>Python / FastAPI</strong></td>
+                <td>High-performance async APIs</td>
+                <td>Excellent</td>
+                <td>Growing</td>
+                <td>Async needed, auto-generated docs, type safety in Python</td>
+              </tr>
+              <tr>
+                <td><strong>Django</strong></td>
+                <td>Full-featured web apps, admin panels</td>
+                <td>Good</td>
+                <td>Massive</td>
+                <td>Built-in auth, ORM, admin — batteries-included approach</td>
+              </tr>
+              <tr>
+                <td><strong>Go</strong></td>
+                <td>Microservices, high-concurrency APIs</td>
+                <td>Excellent</td>
+                <td>Medium</td>
+                <td>Raw performance and concurrency are critical</td>
+              </tr>
+              <tr>
+                <td><strong>Ruby / Rails</strong></td>
+                <td>Rapid prototyping, content platforms</td>
+                <td>Good</td>
+                <td>Large</td>
+                <td>Convention-over-configuration, rapid CRUD development</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>Databases</h5>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Database</th>
+                <th>Type</th>
+                <th>Best For</th>
+                <th>Scaling</th>
+                <th>Recommended When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PostgreSQL</strong></td>
+                <td>Relational</td>
+                <td>Most web apps, complex queries</td>
+                <td>Vertical + Read replicas</td>
+                <td>Default choice for structured data with relationships</td>
+              </tr>
+              <tr>
+                <td><strong>SQLite</strong></td>
+                <td>Relational (embedded)</td>
+                <td>Local dev, prototypes, small apps</td>
+                <td>Single server</td>
+                <td>Development database, simple apps, no server needed</td>
+              </tr>
+              <tr>
+                <td><strong>MongoDB</strong></td>
+                <td>Document</td>
+                <td>Flexible schemas, content management</td>
+                <td>Horizontal (sharding)</td>
+                <td>Schema evolves rapidly, document-oriented data</td>
+              </tr>
+              <tr>
+                <td><strong>Redis</strong></td>
+                <td>Key-value / Cache</td>
+                <td>Caching, sessions, real-time leaderboards</td>
+                <td>Horizontal (cluster)</td>
+                <td>Caching layer, session store, pub/sub messaging</td>
+              </tr>
+              <tr>
+                <td><strong>Supabase</strong></td>
+                <td>PostgreSQL + BaaS</td>
+                <td>Rapid prototyping with auth and real-time</td>
+                <td>Managed</td>
+                <td>Want PostgreSQL with built-in auth, storage, and real-time</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h5>Recommended Full-Stack Combinations</h5>
+        <div class="stack-grid">
+          <div class="stack-card">
+            <h5>SaaS Platform</h5>
+            <div class="stack-combo">Next.js + NestJS + PostgreSQL + Redis</div>
+            <p>Multi-tenant dashboards, subscription billing, user management.</p>
+          </div>
+          <div class="stack-card">
+            <h5>E-commerce Store</h5>
+            <div class="stack-combo">Next.js + Node/Express + PostgreSQL + Stripe</div>
+            <p>Product catalogs, cart, checkout, payment processing.</p>
+          </div>
+          <div class="stack-card">
+            <h5>Real-time Chat</h5>
+            <div class="stack-combo">Next.js + Node/Socket.io + PostgreSQL + Redis</div>
+            <p>Live messaging, presence indicators, typing status.</p>
+          </div>
+          <div class="stack-card">
+            <h5>Content Platform</h5>
+            <div class="stack-combo">Next.js (or Astro) + Headless CMS + PostgreSQL</div>
+            <p>SEO-critical, content-heavy. Static generation for speed.</p>
+          </div>
+          <div class="stack-card">
+            <h5>Mobile Backend / API</h5>
+            <div class="stack-combo">FastAPI + PostgreSQL + Redis + Docker</div>
+            <p>REST or GraphQL API consumed by mobile apps.</p>
+          </div>
+          <div class="stack-card">
+            <h5>Internal Dashboard</h5>
+            <div class="stack-combo">React (or Vue) + FastAPI + PostgreSQL</div>
+            <p>Admin panels, analytics dashboards, internal tools.</p>
+          </div>
+          <div class="stack-card">
+            <h5>Rapid Prototype / MVP</h5>
+            <div class="stack-combo">SvelteKit + Supabase (or SQLite)</div>
+            <p>Validate an idea fast. Minimal backend code needed.</p>
+          </div>
+        </div>
+
+        <h5>Stack Decision Framework</h5>
+        <div class="steps">
+          <div class="step">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Define project type and scale</strong>
+              <p>SaaS, e-commerce, content site, API, or internal tool? Expected users: 10, 1K, or 100K?</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Identify real-time requirements</strong>
+              <p>WebSockets, live updates, or notifications? If yes, consider Node.js + Redis + Socket.io.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Evaluate team familiarity</strong>
+              <p>Use what you know. A Python team should use FastAPI or Django, not learn Go for a CRUD app.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">4</span>
+            <div>
+              <strong>Check ecosystem and library availability</strong>
+              <p>Payments, email, auth, file uploads — make sure libraries exist before committing.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">5</span>
+            <div>
+              <strong>Consider deployment target</strong>
+              <p>Vercel for Next.js, Railway/Fly.io for Docker, AWS/GCP for enterprise.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num">6</span>
+            <div>
+              <strong>Document in the PRD</strong>
+              <p>Write the chosen stack, reasoning, and alternatives into the Tech Stack section of prd.md below.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="key-lesson">
+          <h4>Key Lesson</h4>
+          <p>Pick the stack that matches your project's <strong>real constraints</strong> — team skills, scale requirements, deployment target — not the one with the most hype.</p>
+        </div>
+
+        <h4>Step 2: Write the PRD</h4>
+        <p>With your stack chosen, generate the full PRD. The Tech Stack section is where your decision from Step 1 gets documented permanently.</p>
+
+        <h4>PRD Template</h4>
+        <div class="code-block">
+          <div class="code-header">Docs/prd.md</div>
+<pre># Project Name
+
+## Overview
+What the project is and why it exists.
+
+## Goals
+What success means.
+
+## Target Users
+Who uses it.
+
+## Core Features
+Main features with descriptions.
+
+## User Flows
+How users move through the app.
+
+## Functional Requirements
+Exact system behavior.
+
+## Non-Functional Requirements
+Performance, security, responsiveness, accessibility.
+
+## Tech Stack
+Frontend, backend, DB, auth, deployment.
+
+## Pages / Screens
+All UI pages with purpose.
+
+## API / Backend Modules
+Routes, controllers, services.
+
+## Data Models
+Main entities and relationships.
+
+## Risks / Edge Cases
+Known issues or complexity.
+
+## Milestones
+High-level implementation roadmap.
+
+## Acceptance Criteria
+What must be true for completion.</pre>
+        </div>
+
+        <h4>ChatGPT Prompt to Generate PRD with Tech Stack</h4>
+        <div class="prompt-block">
+<pre>I want to build a [project type].
+
+My chosen stack (use the decision framework above):
+- Frontend: [e.g., Next.js with TypeScript]
+- Backend: [e.g., FastAPI with Python 3.12]
+- Database: [e.g., PostgreSQL + Redis for caching]
+- Auth: [e.g., JWT with refresh tokens]
+- Deployment: [e.g., Vercel + Railway]
+
+Generate a detailed prd.md in markdown.
+
+Include:
+- overview
+- goals
+- target users
+- core features with descriptions
+- user flows (step-by-step)
+- functional requirements
+- non-functional requirements
+- tech stack WITH JUSTIFICATION for each choice
+- pages/screens with purpose
+- backend routes/modules
+- data models with relationships
+- risks and edge cases
+- milestones (phased)
+- acceptance criteria
+
+The PRD must be practical and implementation-ready.
+The Tech Stack section must explain WHY each technology
+was chosen over alternatives for THIS specific project.</pre>
+        </div>
+
+        <h4>Review Checklist</h4>
+        <p>After ChatGPT creates the PRD, manually review for:</p>
+        <div class="checklist">
+          <label><input type="checkbox"> Vague requirements made specific</label>
+          <label><input type="checkbox"> Missing edge cases added</label>
+          <label><input type="checkbox"> Admin flows included (if needed)</label>
+          <label><input type="checkbox"> Auth rules defined</label>
+          <label><input type="checkbox"> All CRUD operations listed</label>
+          <label><input type="checkbox"> Validation rules specified</label>
+          <label><input type="checkbox"> Error states documented</label>
+          <label><input type="checkbox"> Tech stack justified (not just listed)</label>
+          <label><input type="checkbox"> Testing tools specified per layer</label>
+          <label><input type="checkbox"> Deployment target and platform defined</label>
+        </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

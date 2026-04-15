@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources — Vibe Coding Process</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+
+<!-- ========== HERO ========== -->
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Links &middot; Docs &middot; Templates</span>
+    <h1>Resources &amp; Documentation</h1>
+    <p class="hero-sub">Official documentation, MCP repositories, templates, and community resources for every tool in the Vibe Coding workflow.</p>
+  </div>
+</header>
+
+<!-- ========== RESOURCES ========== -->
+<section class="section">
+  <div class="container">
+
+    <!-- AI Coding Tools -->
+    <h2 class="section-title">AI Coding Tools</h2>
+    <p class="section-intro">Official documentation and downloads for the three main AI coding agents.</p>
+    <div class="tools-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+      <div class="tool-card">
+        <div class="tool-header">
+          <img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude">
+          <h3>Claude Code</h3>
+        </div>
+        <ul>
+          <li><strong>Documentation:</strong> code.claude.com/docs</li>
+          <li><strong>Download:</strong> <code>npm i -g @anthropic-ai/claude-code</code></li>
+          <li><strong>API Console:</strong> console.anthropic.com</li>
+          <li><strong>VS Code Extension:</strong> Search "Claude Code" in marketplace</li>
+          <li><strong>GitHub:</strong> github.com/anthropics/claude-code</li>
+          <li><strong>CLAUDE.md Reference:</strong> code.claude.com/docs/claude-md</li>
+          <li><strong>MCP Docs:</strong> code.claude.com/docs/mcp</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header">
+          <img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/codex-color.png" alt="Codex">
+          <h3>OpenAI Codex</h3>
+        </div>
+        <ul>
+          <li><strong>Documentation:</strong> platform.openai.com/docs/codex</li>
+          <li><strong>Download:</strong> <code>npm i -g @openai/codex</code></li>
+          <li><strong>API Keys:</strong> platform.openai.com/api-keys</li>
+          <li><strong>GitHub:</strong> github.com/openai/codex</li>
+          <li><strong>Pricing:</strong> platform.openai.com/pricing</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header">
+          <img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/antigravity-color.png" alt="Antigravity">
+          <h3>Google Antigravity</h3>
+        </div>
+        <ul>
+          <li><strong>Website:</strong> antigravity.dev</li>
+          <li><strong>Documentation:</strong> antigravity.dev/docs</li>
+          <li><strong>Google Cloud:</strong> cloud.google.com</li>
+          <li><strong>Stitch Integration:</strong> stitch.withgoogle.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- MCP Server Repositories -->
+    <h2 class="section-title" style="margin-top:3rem">MCP Server Repositories</h2>
+    <p class="section-intro">GitHub repositories for Model Context Protocol servers you can install and configure.</p>
+    <div class="supporting-tools">
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+        <div><strong>GitHub MCP</strong><span>github.com/modelcontextprotocol/server-github</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+        <div><strong>PostgreSQL MCP</strong><span>github.com/modelcontextprotocol/server-postgres</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg" alt="Playwright">
+        <div><strong>Playwright MCP</strong><span>github.com/anthropics/mcp-playwright</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Stitch">
+        <div><strong>Stitch MCP</strong><span>github.com/davideast/stitch-mcp</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg" alt="Slack">
+        <div><strong>Slack MCP</strong><span>github.com/anthropics/mcp-slack</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linear/linear-original.svg" alt="Linear">
+        <div><strong>Linear MCP</strong><span>github.com/jerhadf/linear-mcp-server</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Filesystem">
+        <div><strong>Filesystem MCP</strong><span>github.com/modelcontextprotocol/server-filesystem</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Memory">
+        <div><strong>Memory MCP</strong><span>github.com/anthropics/mcp-memory</span></div>
+      </div>
+    </div>
+
+    <!-- MCP Directories -->
+    <h3 class="sub-heading" style="margin-top:2rem">MCP Directories &amp; Discovery</h3>
+    <div class="supporting-tools">
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="MCP">
+        <div><strong>Official MCP Spec</strong><span>modelcontextprotocol.io</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="Awesome MCP">
+        <div><strong>Awesome MCP Servers</strong><span>github.com/punkpeye/awesome-mcp-servers</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="npm">
+        <div><strong>MCP on npm</strong><span>npmjs.com/search?q=mcp-server</span></div>
+      </div>
+    </div>
+
+    <!-- Design Tools -->
+    <h2 class="section-title" style="margin-top:3rem">Design Tools</h2>
+    <p class="section-intro">Tools for generating and managing UI designs in your AI workflow.</p>
+    <div class="tools-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+      <div class="tool-card">
+        <div class="tool-header">
+          <img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Stitch">
+          <h3>Google Stitch</h3>
+        </div>
+        <ul>
+          <li><strong>App:</strong> stitch.withgoogle.com</li>
+          <li><strong>MCP Server:</strong> github.com/davideast/stitch-mcp</li>
+          <li><strong>Skills:</strong> github.com/google-labs-code/stitch-skills</li>
+          <li><strong>Stitch Kit:</strong> github.com/gabelul/stitch-kit</li>
+          <li><strong>Google Cloud Console:</strong> console.cloud.google.com</li>
+        </ul>
+      </div>
+      <div class="tool-card">
+        <div class="tool-header">
+          <img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
+          <h3>Figma (Alternative)</h3>
+        </div>
+        <ul>
+          <li><strong>App:</strong> figma.com</li>
+          <li><strong>Dev Mode:</strong> figma.com/dev-mode</li>
+          <li><strong>Figma to Code plugins:</strong> Search "code" in Figma Community</li>
+          <li><strong>Figma MCP:</strong> github.com/anthropics/mcp-figma (community)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Development Tools -->
+    <h2 class="section-title" style="margin-top:3rem">Development Tools</h2>
+    <p class="section-intro">Essential tools for the development workflow.</p>
+    <div class="supporting-tools">
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+        <div><strong>Docker</strong><span>docker.com/products/docker-desktop</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
+        <div><strong>Git</strong><span>git-scm.com</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code">
+        <div><strong>VS Code</strong><span>code.visualstudio.com</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/1/10/2023_Obsidian_logo.svg" alt="Obsidian">
+        <div><strong>Obsidian</strong><span>obsidian.md</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js">
+        <div><strong>Node.js</strong><span>nodejs.org</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
+        <div><strong>Python</strong><span>python.org</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+        <div><strong>PostgreSQL</strong><span>postgresql.org</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman">
+        <div><strong>Postman</strong><span>postman.com</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" alt="Supabase">
+        <div><strong>Supabase</strong><span>supabase.com</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" alt="Firebase">
+        <div><strong>Firebase</strong><span>firebase.google.com</span></div>
+      </div>
+    </div>
+
+    <!-- Templates -->
+    <h2 class="section-title" style="margin-top:3rem">Templates &amp; Starter Files</h2>
+    <p class="section-intro">Ready-to-use templates for the Vibe Coding workflow. Copy these into your project.</p>
+
+    <div class="module">
+      <input type="checkbox" id="tmpl-prd" class="module-toggle">
+      <label for="tmpl-prd" class="module-header">
+        <span class="module-num">01</span>
+        <div>
+          <h3>PRD Template (prd.md)</h3>
+          <p class="module-objective">Product Requirements Document template with tech stack section.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <div class="code-block">
+          <div class="code-header">Docs/prd.md</div>
+<pre># Project Name
+
+## Overview
+What the project is and why it exists.
+
+## Goals
+What success means.
+
+## Target Users
+Who uses it.
+
+## Core Features
+Main features with descriptions.
+
+## User Flows
+How users move through the app.
+
+## Functional Requirements
+Exact system behavior.
+
+## Non-Functional Requirements
+Performance, security, responsiveness, accessibility.
+
+## Tech Stack
+- Frontend: [framework] — why
+- Backend: [framework] — why
+- Database: [database] — why
+- Auth: [strategy] — why
+- Deployment: [platform] — why
+
+## Pages / Screens
+All UI pages with purpose.
+
+## API / Backend Modules
+Routes, controllers, services.
+
+## Data Models
+Main entities and relationships.
+
+## Risks / Edge Cases
+Known issues or complexity.
+
+## Milestones
+High-level implementation roadmap.
+
+## Acceptance Criteria
+What must be true for completion.</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <input type="checkbox" id="tmpl-claude" class="module-toggle">
+      <label for="tmpl-claude" class="module-header">
+        <span class="module-num">02</span>
+        <div>
+          <h3>CLAUDE.md Template</h3>
+          <p class="module-objective">Project-level instructions for Claude Code.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <div class="code-block">
+          <div class="code-header">CLAUDE.md</div>
+<pre># My Project — Agent Instructions
+
+## Project Overview
+Read Docs/prd.md for full requirements.
+
+## Stack
+- Frontend: [framework]
+- Backend: [framework]
+- Database: [database]
+
+## Development Workflow
+- ALWAYS read Docs/prd.md before implementing
+- Work only on the current session (check Docs/sessions/)
+- Make small, atomic, testable changes
+- Never implement features from future sessions
+
+## After Every Session
+Update these files:
+- Docs/progress.md — mark completed tasks
+- Docs/sessions/session-XX.md — add implementation notes
+- Docs/api-routes.md — if backend routes changed
+- Docs/frontend-pages.md — if UI changed
+
+## Testing
+- Run tests after every change
+- Document test results in session file
+- Do not mark tasks complete until tests pass
+
+## Design System
+- Read design/DESIGN.md before creating or modifying UI
+- Match colors, typography, and spacing from design tokens
+- Do not invent new styles — use defined tokens only
+
+## MCP Tools
+- GitHub MCP: for PRs and issues only
+- PostgreSQL MCP: for DB queries and schema inspection
+- Playwright MCP: for UI testing only
+
+## Conventions
+- [Add your project conventions here]</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <input type="checkbox" id="tmpl-session" class="module-toggle">
+      <label for="tmpl-session" class="module-header">
+        <span class="module-num">03</span>
+        <div>
+          <h3>Session Template</h3>
+          <p class="module-objective">Template for individual coding sessions.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <div class="code-block">
+          <div class="code-header">Docs/sessions/session-XX.md</div>
+<pre># Session XX — [Title]
+## Phase: [Foundation / Core Features / Advanced / Polish / Deployment]
+
+## Goals
+[What this session accomplishes]
+
+## Tasks
+- [ ] Task 1
+- [ ] Task 2
+- [ ] Task 3
+
+## Files to Create/Update
+- file1.ts
+- file2.py
+- Docs/progress.md
+
+## Implementation Notes
+(filled in during/after session)
+
+## Tests
+- [command 1]
+- [command 2]
+
+## Expected Result
+[What should work when this session is complete]
+
+## Completion Checklist
+- [ ] All tasks done
+- [ ] App runs without errors
+- [ ] Tests pass
+- [ ] Docs updated</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Community & Learning -->
+    <h2 class="section-title" style="margin-top:3rem">Community &amp; Learning</h2>
+    <p class="section-intro">Articles, videos, and communities for AI-assisted development.</p>
+    <div class="supporting-tools">
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Anthropic">
+        <div><strong>Claude Code Blog</strong><span>anthropic.com/engineering</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+        <div><strong>Claude Code Issues / Discussions</strong><span>github.com/anthropics/claude-code/issues</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Discord_Color.svg" alt="Discord">
+        <div><strong>Anthropic Discord</strong><span>Community support and discussion</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
+        <div><strong>Vibe Coding Tutorials</strong><span>Search "vibe coding claude code" on YouTube</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/devto/devto-original.svg" alt="DEV">
+        <div><strong>DEV Community</strong><span>dev.to/t/vibecoding</span></div>
+      </div>
+      <div class="stool">
+        <img class="stool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Roadmap">
+        <div><strong>Vibe Coding Roadmap</strong><span>roadmap.sh/vibe-coding</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+
+<!-- old inline script removed --><!-- 
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.querySelector('.theme-toggle').textContent = next === 'light' ? '\u2600' : '\u263E';
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    var btn = document.querySelector('.theme-toggle');
+    if (btn) btn.textContent = saved === 'light' ? '\u2600' : '\u263E';
+  }
+})();
+-->
+</body>
+</html>

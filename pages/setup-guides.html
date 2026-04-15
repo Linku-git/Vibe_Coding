@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup Guides — Vibe Coding Process</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+
+<!-- ========== HERO ========== -->
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Step-by-Step &middot; Copy-Paste Ready</span>
+    <h1>Setup Guides</h1>
+    <p class="hero-sub">Installation and configuration guides for every tool in the Vibe Coding workflow.</p>
+  </div>
+</header>
+
+<!-- ========== GUIDES ========== -->
+<section class="section">
+  <div class="container">
+
+    <!-- Claude Code -->
+    <div class="module">
+      <input type="checkbox" id="guide-claude" class="module-toggle">
+      <label for="guide-claude" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="Claude" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Claude Code</h3>
+          <p class="module-objective">Install Anthropic's terminal-native AI coding agent.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Installation</h4>
+        <div class="code-block">
+          <div class="code-header">Install via npm (requires Node.js 18+)</div>
+<pre>npm install -g @anthropic-ai/claude-code</pre>
+        </div>
+
+        <h4>First Run</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Open your terminal in your project folder</strong><div class="code-inline">cd my-project</div></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Run Claude Code</strong><div class="code-inline">claude</div><p>On first run, it will ask you to authenticate with your Anthropic API key.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Create CLAUDE.md</strong><p>Create a <code>CLAUDE.md</code> file at your project root. This is your project-level instruction file that Claude reads automatically.</p></div></div>
+          <div class="step"><span class="step-num">4</span><div><strong>Create custom commands (optional)</strong><div class="code-inline">mkdir -p .claude/commands</div><p>Add markdown files like <code>.claude/commands/run-session.md</code> to create slash commands.</p></div></div>
+        </div>
+
+        <h4>API Key Setup</h4>
+        <div class="info-box info-claude">
+          <p>You need an Anthropic API key. Get one at <strong>console.anthropic.com</strong>:</p>
+          <ol>
+            <li>Create an account at console.anthropic.com</li>
+            <li>Go to API Keys section</li>
+            <li>Click "Create Key" and copy it</li>
+            <li>When Claude Code prompts for authentication, paste your key</li>
+          </ol>
+        </div>
+
+        <h4>VS Code Integration</h4>
+        <p>Install the "Claude Code" extension from the VS Code marketplace. It adds a panel where you can interact with Claude directly inside your editor.</p>
+
+        <h4>Verify Installation</h4>
+        <div class="code-block">
+          <div class="code-header">Test that everything works</div>
+<pre>claude --version
+claude "What files are in this directory?"</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Codex -->
+    <div class="module">
+      <input type="checkbox" id="guide-codex" class="module-toggle">
+      <label for="guide-codex" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/codex-color.png" alt="Codex" style="width:24px;height:24px"></span>
+        <div>
+          <h3>OpenAI Codex</h3>
+          <p class="module-objective">Install OpenAI's project-level coding agent.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Installation</h4>
+        <div class="code-block">
+          <div class="code-header">Install via npm</div>
+<pre>npm install -g @openai/codex</pre>
+        </div>
+
+        <h4>API Key Setup</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Get an OpenAI API key</strong><p>Go to platform.openai.com, create an account, and generate an API key.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Set the environment variable</strong><div class="code-inline">export OPENAI_API_KEY="sk-your-key-here"</div><p>Add this to your <code>.bashrc</code>, <code>.zshrc</code>, or Windows environment variables for persistence.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Run Codex in your project</strong><div class="code-inline">cd my-project && codex</div></div></div>
+        </div>
+
+        <h4>Project Setup</h4>
+        <p>Create a <code>Docs/agents.md</code> file in your project with your agent rules. Codex reads this when you reference it in your prompts.</p>
+      </div>
+    </div>
+
+    <!-- Antigravity -->
+    <div class="module">
+      <input type="checkbox" id="guide-antigravity" class="module-toggle">
+      <label for="guide-antigravity" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://unpkg.com/@lobehub/icons-static-png@latest/dark/antigravity-color.png" alt="Antigravity" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Google Antigravity</h3>
+          <p class="module-objective">Set up Google's agentic development platform.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Getting Started</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Visit the Antigravity website</strong><p>Go to <strong>antigravity.dev</strong> and sign in with your Google account.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Create a new project</strong><p>Click "New Project" and connect your GitHub repository or upload a folder.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Configure agents.md</strong><p>Add a <code>Docs/agents.md</code> file to your project with development rules.</p></div></div>
+          <div class="step"><span class="step-num">4</span><div><strong>Connect Stitch (optional)</strong><p>Antigravity has native Google Stitch integration. Enable it in project settings for design-to-code workflows.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Docker -->
+    <div class="module">
+      <input type="checkbox" id="guide-docker" class="module-toggle">
+      <label for="guide-docker" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Docker</h3>
+          <p class="module-objective">Containerize your development environment.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Installation</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Download Docker Desktop</strong><p>Go to <strong>docker.com/products/docker-desktop</strong> and download for your OS (Windows/Mac/Linux).</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Install and start Docker Desktop</strong><p>Run the installer. Docker Desktop must be running for Docker commands to work.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Verify installation</strong><div class="code-inline">docker --version && docker compose version</div></div></div>
+        </div>
+
+        <h4>Basic docker-compose.yml for Full-Stack Projects</h4>
+        <div class="code-block">
+          <div class="code-header">docker-compose.yml</div>
+<pre>version: "3.8"
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:</pre>
+        </div>
+        <p>Run with: <code>docker compose up -d</code> &mdash; Stop with: <code>docker compose down</code></p>
+      </div>
+    </div>
+
+    <!-- Git & GitHub -->
+    <div class="module">
+      <input type="checkbox" id="guide-git" class="module-toggle">
+      <label for="guide-git" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Git &amp; GitHub</h3>
+          <p class="module-objective">Version control setup and SSH key configuration.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Install Git</h4>
+        <div class="code-block">
+          <div class="code-header">Check if Git is installed</div>
+<pre>git --version</pre>
+        </div>
+        <p>If not installed: <strong>Windows:</strong> download from git-scm.com. <strong>Mac:</strong> <code>xcode-select --install</code>. <strong>Linux:</strong> <code>sudo apt install git</code>.</p>
+
+        <h4>Configure Git</h4>
+        <div class="code-block">
+          <div class="code-header">Set your identity</div>
+<pre>git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</pre>
+        </div>
+
+        <h4>SSH Key Setup for GitHub</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Generate SSH key</strong><div class="code-inline">ssh-keygen -t ed25519 -C "you@example.com"</div><p>Press Enter for default file location. Optionally set a passphrase.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Copy the public key</strong><div class="code-inline">cat ~/.ssh/id_ed25519.pub</div><p>Copy the output.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Add to GitHub</strong><p>Go to GitHub &rarr; Settings &rarr; SSH and GPG keys &rarr; New SSH key &rarr; Paste and save.</p></div></div>
+          <div class="step"><span class="step-num">4</span><div><strong>Test the connection</strong><div class="code-inline">ssh -T git@github.com</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Stitch -->
+    <div class="module">
+      <input type="checkbox" id="guide-stitch" class="module-toggle">
+      <label for="guide-stitch" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Stitch" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Google Stitch</h3>
+          <p class="module-objective">AI-powered design tool setup and MCP integration.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Getting Started with Stitch</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Go to stitch.withgoogle.com</strong><p>Sign in with your Google account. Stitch is free to use.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Create a new project</strong><p>Click "New Project" and give it a name matching your app.</p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Generate screens</strong><p>Describe your UI in plain English: "A dashboard with a sidebar, 4 KPI cards, and a data table."</p></div></div>
+        </div>
+
+        <h4>MCP Server Setup (for Claude Code)</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Enable the Stitch API in Google Cloud</strong><p>Go to Google Cloud Console &rarr; APIs &amp; Services &rarr; Enable "Stitch API".</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Authenticate locally</strong><div class="code-inline">gcloud auth application-default login</div></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Add to .claude/settings.json</strong></div></div>
+        </div>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "stitch": {
+      "command": "npx",
+      "args": ["-y", "stitch-mcp"],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "your-project-id"
+      }
+    }
+  }
+}</pre>
+        </div>
+
+        <h4>ZIP Export Method (No MCP)</h4>
+        <p>In Stitch, click <strong>Export &rarr; Download ZIP</strong>. Extract into a <code>/design</code> folder in your project. Add a reference to <code>design/DESIGN.md</code> in your CLAUDE.md.</p>
+      </div>
+    </div>
+
+    <!-- MCP Servers -->
+    <div class="module">
+      <input type="checkbox" id="guide-mcp" class="module-toggle">
+      <label for="guide-mcp" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg" alt="MCP" style="width:24px;height:24px"></span>
+        <div>
+          <h3>MCP Server Setup</h3>
+          <p class="module-objective">Connect AI agents to external tools via Model Context Protocol.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>How MCP Servers Work</h4>
+        <p>MCP servers are configured in <code>.claude/settings.json</code>. Each entry runs a small server that exposes tools to your AI agent. You need Node.js installed for <code>npx</code> commands.</p>
+
+        <h4>GitHub MCP</h4>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>"github": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-github"],
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token"
+  }
+}</pre>
+        </div>
+        <p><strong>Get token:</strong> GitHub &rarr; Settings &rarr; Developer Settings &rarr; Personal Access Tokens &rarr; Generate New Token. Select scopes: <code>repo</code>, <code>read:org</code>.</p>
+
+        <h4>PostgreSQL MCP</h4>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>"postgres": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-postgres"],
+  "env": {
+    "DATABASE_URL": "postgresql://user:pass@localhost:5432/mydb"
+  }
+}</pre>
+        </div>
+        <p><strong>Requires:</strong> PostgreSQL running locally (see Docker guide above for easy setup).</p>
+
+        <h4>Playwright MCP (Browser Automation)</h4>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>"playwright": {
+  "command": "npx",
+  "args": ["-y", "@anthropic-ai/mcp-playwright"]
+}</pre>
+        </div>
+        <p>No API key needed. Automatically launches a browser for UI testing.</p>
+
+        <h4>Slack MCP</h4>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>"slack": {
+  "command": "npx",
+  "args": ["-y", "@anthropic-ai/mcp-slack"],
+  "env": {
+    "SLACK_BOT_TOKEN": "xoxb-your-token"
+  }
+}</pre>
+        </div>
+        <p><strong>Get token:</strong> Go to api.slack.com/apps &rarr; Create New App &rarr; OAuth &amp; Permissions &rarr; Add scopes &rarr; Install to Workspace &rarr; Copy Bot Token.</p>
+
+        <h4>Full Combined Example</h4>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json — complete</div>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxx" }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": { "DATABASE_URL": "postgresql://localhost:5432/mydb" }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-playwright"]
+    }
+  }
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Node.js & Python -->
+    <div class="module">
+      <input type="checkbox" id="guide-runtime" class="module-toggle">
+      <label for="guide-runtime" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js" style="width:24px;height:24px"></span>
+        <div>
+          <h3>Node.js &amp; Python</h3>
+          <p class="module-objective">Set up language runtimes for full-stack development.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Node.js (for frontend and JavaScript backend)</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Install via nvm (recommended)</strong><div class="code-inline">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash</div><p>Windows: use <strong>nvm-windows</strong> from github.com/coreybutler/nvm-windows.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Install latest LTS</strong><div class="code-inline">nvm install --lts && nvm use --lts</div></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Verify</strong><div class="code-inline">node --version && npm --version</div></div></div>
+        </div>
+
+        <h4>Python (for Flask/FastAPI/Django backend)</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div><strong>Install Python 3.12+</strong><p>Download from <strong>python.org</strong>. On Mac: <code>brew install python</code>. On Linux: <code>sudo apt install python3</code>.</p></div></div>
+          <div class="step"><span class="step-num">2</span><div><strong>Create a virtual environment</strong><div class="code-inline">python -m venv .venv && source .venv/bin/activate</div><p>Windows: <code>.venv\Scripts\activate</code></p></div></div>
+          <div class="step"><span class="step-num">3</span><div><strong>Install dependencies</strong><div class="code-inline">pip install -r requirements.txt</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VS Code -->
+    <div class="module">
+      <input type="checkbox" id="guide-vscode" class="module-toggle">
+      <label for="guide-vscode" class="module-header">
+        <span class="module-num"><img class="tool-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" style="width:24px;height:24px"></span>
+        <div>
+          <h3>VS Code Extensions for AI Coding</h3>
+          <p class="module-objective">Essential extensions for AI-assisted development.</p>
+        </div>
+        <span class="module-arrow">&#9660;</span>
+      </label>
+      <div class="module-body">
+        <h4>Recommended Extensions</h4>
+        <ul>
+          <li><strong>Claude Code</strong> &mdash; Anthropic's official extension for Claude Code integration</li>
+          <li><strong>GitHub Copilot</strong> &mdash; AI code completion and chat</li>
+          <li><strong>ESLint</strong> &mdash; JavaScript/TypeScript linting</li>
+          <li><strong>Prettier</strong> &mdash; Code formatting</li>
+          <li><strong>Python</strong> &mdash; Python language support and debugging</li>
+          <li><strong>Ruff</strong> &mdash; Fast Python linting</li>
+          <li><strong>Docker</strong> &mdash; Docker file support and container management</li>
+          <li><strong>GitLens</strong> &mdash; Enhanced Git integration</li>
+          <li><strong>Thunder Client</strong> &mdash; Lightweight API testing (like Postman)</li>
+        </ul>
+
+        <h4>Install via Terminal</h4>
+        <div class="code-block">
+          <div class="code-header">Install key extensions</div>
+<pre>code --install-extension anthropic.claude-code
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension esbenp.prettier-vscode
+code --install-extension ms-python.python</pre>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+
+<!-- old inline script removed --><!-- 
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  document.querySelector('.theme-toggle').textContent = next === 'light' ? '\u2600' : '\u263E';
+}
+(function() {
+  const saved = localStorage.getItem('theme');
+  if (saved) {
+    document.documentElement.setAttribute('data-theme', saved);
+    var btn = document.querySelector('.theme-toggle');
+    if (btn) btn.textContent = saved === 'light' ? '\u2600' : '\u263E';
+  }
+})();
+-->
+</body>
+</html>

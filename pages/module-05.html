@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 05 — Skills, Agents, Tools, MCP Servers &amp; Memory — Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="05">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 05 of 11</span>
+    <h1>Skills, Agents, Tools, MCP Servers &amp; Memory</h1>
+    <p class="hero-sub">Understand the complete support system around AI coding agents — with real, copy-paste-ready examples.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+
+        <div class="key-lesson">
+          <h4>The Five Pillars</h4>
+          <p><strong>Agents</strong> define behavior. <strong>Skills</strong> encode procedures. <strong>MCP Servers</strong> connect to external tools. <strong>Tools</strong> are the agent's hands. <strong>Memory</strong> is the persistent brain. Together, they turn an AI from a chatbot into a reliable development partner.</p>
+        </div>
+
+        <!-- ====== 6.1 AGENTS ====== -->
+        <h4>6.1 Agents — The Behavioral Layer</h4>
+        <p>An agent is not a separate program — it is a <strong>set of behavioral rules</strong> that define how the AI approaches work. Agents answer: What should I read first? When should I test? What should I update? How should I report results?</p>
+
+        <p>In <strong>Claude Code</strong>, agent behavior is defined in <code>CLAUDE.md</code>. In <strong>Codex</strong> and <strong>Antigravity</strong>, it goes in <code>agents.md</code>. The AI reads these instructions at the start of every conversation and follows them throughout.</p>
+
+        <div class="info-box info-claude">
+          <strong>Claude Code Subagents:</strong> Claude Code can spawn focused <strong>subagents</strong> — lightweight agents that handle a specific subtask in parallel. Think of them as specialists you delegate to. The main agent orchestrates, subagents execute.
+        </div>
+
+        <h5>Agent Example 1: Research Agent</h5>
+        <p>Use this when you need the AI to explore your codebase before implementing anything.</p>
+        <div class="prompt-block">
+<pre>Before implementing anything, research the codebase:
+
+1. Find all existing API endpoints and list them
+2. Identify the authentication middleware and how it works
+3. Check the database schema and list all models
+4. Review the test setup and identify the testing framework
+5. Check existing route patterns and naming conventions
+
+Report your findings in a structured format.
+Do NOT make any changes — this is research only.</pre>
+        </div>
+
+        <h5>Agent Example 2: Implementation Agent</h5>
+        <p>Use this when the AI should implement a feature following strict rules.</p>
+        <div class="prompt-block">
+<pre>Implement the user profile feature following these rules:
+
+1. Read Docs/sessions/session-06.md for exact requirements
+2. Follow the existing route pattern in src/routes/
+3. Add Pydantic schema validation for all inputs
+4. Add unit tests in tests/ following existing test patterns
+5. Run all tests after implementation
+6. Update Docs/api-routes.md with new endpoints
+7. Update Docs/progress.md marking session-06 tasks complete
+8. Report: files changed, tests run, results, any blockers</pre>
+        </div>
+
+        <h5>Agent Example 3: Testing Agent</h5>
+        <p>Use this to delegate a thorough testing sweep.</p>
+        <div class="prompt-block">
+<pre>Run a complete test sweep on the current codebase:
+
+1. Run all backend tests: pytest -v
+2. Run all frontend tests: npm test
+3. Run the linter: ruff check . && npm run lint
+4. Check for TypeScript errors: npx tsc --noEmit
+5. Start the app and verify it runs without errors
+
+For each failure:
+- Identify the root cause
+- Classify as: bug, missing test, flaky test, or config issue
+- Suggest a fix but do NOT apply it yet
+
+Report all results in a structured table.</pre>
+        </div>
+
+        <h5>How Agents Differ Across Tools</h5>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Claude Code</th>
+                <th>Codex</th>
+                <th>Antigravity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Agent rules file</td>
+                <td>CLAUDE.md (auto-loaded)</td>
+                <td>agents.md (manual reference)</td>
+                <td>agents.md (manual reference)</td>
+              </tr>
+              <tr>
+                <td>Subagent spawning</td>
+                <td class="yes">&#10003; Built-in</td>
+                <td class="yes">&#10003; Parallel agents</td>
+                <td class="yes">&#10003; Multi-agent orchestration</td>
+              </tr>
+              <tr>
+                <td>Agent isolation</td>
+                <td>Worktrees (git branches)</td>
+                <td>Sandboxed environments</td>
+                <td>Full environment isolation</td>
+              </tr>
+              <tr>
+                <td>Agent memory</td>
+                <td class="yes">&#10003; Built-in persistent</td>
+                <td class="partial">&#9711; Session-based</td>
+                <td class="partial">&#9711; Session-based</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ====== 6.2 SKILLS ====== -->
+        <h4>6.2 Skills — Reusable Procedural Knowledge</h4>
+        <p>Skills are <strong>markdown files</strong> that teach the AI how to perform specific tasks. They live in <code>.claude/commands/</code> and require no server, no API, no dependencies — just plain text instructions.</p>
+
+        <p>Think of it this way: <strong>MCP gives the AI access to tools</strong> (like a store's inventory). <strong>Skills tell the AI how to use those tools effectively</strong> (like having a knowledgeable employee). All the data in the world won't help without knowing what to do with it.</p>
+
+        <div class="info-box info-claude">
+          <strong>How to create a skill:</strong> Create a markdown file in <code>.claude/commands/</code>. The filename becomes the command name. Use <code>$ARGUMENTS</code> for dynamic input. Run with <code>/project:command-name</code>.
+        </div>
+
+        <h5>Skill 1: Run Session</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/run-session.md</div>
+<pre>Read Docs/sessions/session-$ARGUMENTS.md
+
+Complete only this session following CLAUDE.md rules.
+Make small, atomic, testable changes.
+
+For each task in the session:
+1. Implement the change
+2. Run relevant tests immediately
+3. Fix any failures before moving to the next task
+
+After all tasks are complete:
+- Update Docs/progress.md (mark completed tasks)
+- Update Docs/sessions/session-$ARGUMENTS.md (add implementation notes)
+- Update Docs/api-routes.md (if any routes changed)
+- Update Docs/frontend-pages.md (if any UI changed)
+- Update Docs/readme.md (if setup steps changed)
+
+Report: files changed, tests run, errors found, fixes applied, blockers.</pre>
+        </div>
+        <p>Usage: <code>/project:run-session 03</code></p>
+
+        <h5>Skill 2: Add API Route</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/add-api-route.md</div>
+<pre>Add a new API route: $ARGUMENTS
+
+Steps:
+1. Read Docs/api-routes.md for existing route patterns
+2. Read the existing route files to match conventions
+3. Create the route with proper HTTP method and path
+4. Add Pydantic/Zod schema validation for request body
+5. Add controller logic with proper error handling
+6. Add unit tests following existing test patterns
+7. Run tests: pytest -v (or npm test)
+8. Update Docs/api-routes.md with the new endpoint
+9. Update Docs/progress.md
+
+Follow existing naming conventions exactly.
+Do not change any existing routes.</pre>
+        </div>
+        <p>Usage: <code>/project:add-api-route "POST /api/users/:id/avatar"</code></p>
+
+        <h5>Skill 3: Create Component</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/create-component.md</div>
+<pre>Create a new frontend component: $ARGUMENTS
+
+Steps:
+1. Read Docs/frontend-pages.md for existing component patterns
+2. Check existing components for naming and style conventions
+3. Create the component file with TypeScript types
+4. Add props interface with proper typing
+5. Include loading, error, and empty states
+6. Add responsive styles following existing patterns
+7. Add unit test for the component
+8. Run tests: npm test
+9. Update Docs/frontend-pages.md
+
+If the component needs API data, use the existing
+data fetching pattern (React Query, SWR, etc.).</pre>
+        </div>
+        <p>Usage: <code>/project:create-component "UserProfileCard"</code></p>
+
+        <h5>Skill 4: Review Code</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/review-code.md</div>
+<pre>Review all changes made in the current session.
+
+Check for:
+1. Security: SQL injection, XSS, exposed secrets, auth bypass
+2. Performance: N+1 queries, missing indexes, unnecessary re-renders
+3. Error handling: unhandled promises, missing try/catch, silent failures
+4. Type safety: any types, missing null checks, unsafe casts
+5. Test coverage: untested happy paths, missing edge case tests
+6. Convention compliance: naming, file structure, import order
+
+For each issue found:
+- File and line number
+- Severity: critical / warning / suggestion
+- What's wrong and why
+- Suggested fix
+
+Do NOT auto-fix. Report only.</pre>
+        </div>
+        <p>Usage: <code>/project:review-code</code></p>
+
+        <h5>Skill 5: Run Tests</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/run-tests.md</div>
+<pre>Run the full test suite and report results.
+
+1. Run backend tests: pytest -v --tb=short
+2. Run frontend tests: npm test -- --coverage
+3. Run linter: ruff check . && npm run lint
+4. Run type checker: npx tsc --noEmit
+
+Report format:
+## Test Results
+- Backend: X passed, Y failed
+- Frontend: X passed, Y failed
+- Lint: clean / N issues
+- Types: clean / N errors
+
+## Failures (if any)
+For each failure:
+- Test name and file
+- Error message
+- Root cause analysis
+- Suggested fix
+
+## Coverage
+- Overall: X%
+- Untested areas: [list files with 0% coverage]</pre>
+        </div>
+        <p>Usage: <code>/project:run-tests</code></p>
+
+        <h5>Skill 6: Setup Database</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/commands/setup-database.md</div>
+<pre>Set up or reset the development database.
+
+Steps:
+1. Read Docs/prd.md for data model requirements
+2. Read existing migration files (if any)
+3. Create/update database models matching the PRD
+4. Generate migration files
+5. Run migrations
+6. Create seed data for development
+7. Verify: connect and query each table
+8. Update Docs/architecture.md with current schema
+
+Database: use SQLite for local dev unless CLAUDE.md
+specifies otherwise.
+
+If the database already exists, ask before dropping.
+Never drop a production database.</pre>
+        </div>
+        <p>Usage: <code>/project:setup-database</code></p>
+
+        <!-- ====== 6.3 MCP SERVERS ====== -->
+        <h4>6.3 MCP Servers — Connecting AI to External Tools</h4>
+        <p><strong>MCP (Model Context Protocol)</strong> is a standardized way to connect AI agents to external tools and data sources. An MCP server is a standalone program that exposes tools, resources, and prompts over a standard protocol. The AI agent calls these tools like functions.</p>
+
+        <div class="warning-box">
+          <p><strong>Important:</strong> Only add MCP servers you actually need. Each server adds complexity and potential failure points. Document what each server does, when to use it, and when NOT to use it.</p>
+        </div>
+
+        <h5>MCP Server 1: Filesystem</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/project"]
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Read and write project files. <strong>Use when:</strong> editing code, docs, configs. <strong>Skip when:</strong> Claude Code already has built-in file access — you rarely need this one separately.</p>
+
+        <h5>MCP Server 2: GitHub</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_your_token_here"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Create PRs, review code, manage issues, read repo metadata. <strong>Use when:</strong> syncing with tracked issues, creating PRs after sessions, reviewing code changes. <strong>Skip when:</strong> working entirely offline or on a local-only project.</p>
+
+        <h5>MCP Server 3: PostgreSQL</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "DATABASE_URL": "postgresql://user:pass@localhost:5432/mydb"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Query database, inspect schema, run migrations. <strong>Use when:</strong> building data models, debugging queries, verifying data. <strong>Skip when:</strong> using SQLite (just query via CLI) or no database in the project.</p>
+
+        <h5>MCP Server 4: Playwright (Browser Automation)</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-playwright"]
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Navigate pages, click elements, fill forms, take screenshots, run UI tests. <strong>Use when:</strong> testing frontend features, verifying UI changes, debugging visual issues. <strong>Skip when:</strong> backend-only changes or API-only projects.</p>
+
+        <h5>MCP Server 5: Stitch (Design-to-Code)</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "stitch": {
+      "command": "npx",
+      "args": ["-y", "stitch-mcp"],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "your-project-id"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Pull designs from Google Stitch, extract design tokens, fetch screen code and images. <strong>Use when:</strong> implementing UI from Stitch designs, maintaining design consistency. <strong>Skip when:</strong> no design system or using Figma instead. <em>(See Module 08 for full Stitch setup.)</em></p>
+
+        <h5>MCP Server 6: Slack</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "slack": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-slack"],
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-your-token"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Read channels, post updates, search messages. <strong>Use when:</strong> team communication integration, automated status updates. <strong>Skip when:</strong> solo project or no Slack workspace.</p>
+
+        <h5>MCP Server 7: Linear (Project Management)</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "linear": {
+      "command": "npx",
+      "args": ["-y", "linear-mcp"],
+      "env": {
+        "LINEAR_API_KEY": "lin_api_your_key"
+      }
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Read issues, update ticket status, create new tickets. <strong>Use when:</strong> syncing sessions with project management, tracking bugs. <strong>Skip when:</strong> using GitHub Issues instead or no PM tool.</p>
+
+        <h5>MCP Server 8: Memory</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json</div>
+<pre>{
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-memory"]
+    }
+  }
+}</pre>
+        </div>
+        <p><strong>Purpose:</strong> Persistent knowledge graph across sessions. <strong>Use when:</strong> you need the AI to remember decisions, preferences, and project context across conversations. <strong>Skip when:</strong> using Claude Code (it has built-in memory already).</p>
+
+        <h5>Full Combined Configuration Example</h5>
+        <div class="code-block">
+          <div class="code-header">.claude/settings.json — typical full-stack project</div>
+<pre>{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": { "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxx" }
+    },
+    "postgres": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": { "DATABASE_URL": "postgresql://localhost:5432/mydb" }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-playwright"]
+    },
+    "stitch": {
+      "command": "npx",
+      "args": ["-y", "stitch-mcp"],
+      "env": { "GOOGLE_CLOUD_PROJECT": "my-project-id" }
+    }
+  }
+}</pre>
+        </div>
+
+        <div class="warning-box">
+          <p><strong>MCP Boundary Rule:</strong> Always document which MCP does what and when NOT to use it. Too many unbounded MCP servers cause the AI to use the wrong tool. Add an <code># MCP Tools</code> section to your CLAUDE.md listing each server's purpose and boundaries.</p>
+        </div>
+
+        <!-- ====== 6.4 TOOLS ====== -->
+        <h4>6.4 Tools — The Agent's Hands</h4>
+        <p>Tools are the specific capabilities available to the agent. Each AI coding tool provides a different set:</p>
+        <div class="comparison-table-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>What It Does</th>
+                <th>Available In</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Terminal</strong></td><td>Run shell commands, scripts, tests</td><td>All tools</td></tr>
+              <tr><td><strong>File Editor</strong></td><td>Read, create, edit, delete files</td><td>All tools</td></tr>
+              <tr><td><strong>Browser</strong></td><td>Navigate pages, take screenshots, interact with UI</td><td>Claude Code (via MCP), Antigravity</td></tr>
+              <tr><td><strong>Database Client</strong></td><td>Query, inspect schema, run migrations</td><td>Claude Code (via MCP), Antigravity</td></tr>
+              <tr><td><strong>Git</strong></td><td>Commit, branch, push, create PRs</td><td>Claude Code, Codex</td></tr>
+              <tr><td><strong>Test Runner</strong></td><td>Execute test suites, report results</td><td>All tools (via terminal)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Document your available tools, standard commands, and expected output format in CLAUDE.md or agents.md.</p>
+
+        <!-- ====== 6.5 MEMORY ====== -->
+        <h4>6.5 Memory — The Persistent Brain</h4>
+        <p>Memory is the persistent context layer that survives across sessions and conversations.</p>
+        <div class="two-col-sm">
+          <div>
+            <h5>Good Memory Items</h5>
+            <ul class="list-good">
+              <li>"Use React Query for server state"</li>
+              <li>"All routes must have schema validation"</li>
+              <li>"All sessions must update progress.md"</li>
+              <li>"Use SQLite during local dev"</li>
+              <li>"Deployment target is Vercel"</li>
+              <li>"User prefers concise responses"</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Bad Memory Items</h5>
+            <ul class="list-bad">
+              <li>Temporary debugging notes</li>
+              <li>Random one-time errors</li>
+              <li>Unstable unapproved ideas</li>
+              <li>Ephemeral task details</li>
+              <li>Code snippets (use the repo instead)</li>
+              <li>Things already in CLAUDE.md</li>
+            </ul>
+          </div>
+        </div>
+        <div class="info-box info-claude">
+          <strong>Claude Code Memory:</strong> Claude Code has a built-in memory system stored in
+          <code>~/.claude/projects/&lt;project&gt;/memory/</code>. Use it for user preferences,
+          project decisions, and feedback. Memory persists across conversations automatically.
+          You can also explicitly tell Claude Code: <code>"Remember that we use Stripe for payments"</code>.
+        </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

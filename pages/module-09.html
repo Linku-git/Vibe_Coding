@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 09 - Creating Coding Sessions - Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="9">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 09 of 11</span>
+    <h1>Creating Coding Sessions</h1>
+    <p class="hero-sub">Split the entire app into small, executable, testable sessions.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+        <h4>Why Sessions Matter</h4>
+        <p>Without sessions, AI tries to build too much at once. With sessions: work stays focused, testing is easier, bugs are easier to isolate, and documentation stays current.</p>
+
+        <h4>Session Rules</h4>
+        <p>A session should be: <strong>small</strong>, <strong>atomic</strong>, <strong>testable</strong>, <strong>reviewable</strong>, and <strong>independent enough to complete safely</strong>.</p>
+
+        <div class="info-box info-claude">
+          <strong>How many sessions?</strong> Simple projects need 6-10 sessions. Complex full-stack projects need 15-30+ sessions. The number depends on project scope — don't force a complex app into 8 sessions. Each session should be completable in one AI conversation.
+        </div>
+
+        <h4>Example Session Breakdown — Complex Project (15 sessions)</h4>
+        <div class="session-timeline">
+          <div class="session-phase">Phase 1: Foundation</div>
+          <div class="session-item"><span class="session-num">01</span><span>Project bootstrap, folder structure, and dev environment</span></div>
+          <div class="session-item"><span class="session-num">02</span><span>Database models, migrations, and seed data</span></div>
+          <div class="session-item"><span class="session-num">03</span><span>Authentication backend (routes, middleware, tokens)</span></div>
+
+          <div class="session-phase">Phase 2: Core Features</div>
+          <div class="session-item"><span class="session-num">04</span><span>Authentication frontend (login, register, protected routes)</span></div>
+          <div class="session-item"><span class="session-num">05</span><span>Dashboard shell, navigation, and layout</span></div>
+          <div class="session-item"><span class="session-num">06</span><span>Primary feature CRUD — backend routes and logic</span></div>
+          <div class="session-item"><span class="session-num">07</span><span>Primary feature CRUD — frontend pages and forms</span></div>
+          <div class="session-item"><span class="session-num">08</span><span>Secondary feature implementation</span></div>
+
+          <div class="session-phase">Phase 3: Advanced Features</div>
+          <div class="session-item"><span class="session-num">09</span><span>Search, filtering, and pagination</span></div>
+          <div class="session-item"><span class="session-num">10</span><span>File uploads or media handling</span></div>
+          <div class="session-item"><span class="session-num">11</span><span>Notifications or real-time features</span></div>
+
+          <div class="session-phase">Phase 4: Integration &amp; Polish</div>
+          <div class="session-item"><span class="session-num">12</span><span>Validation, error states, and edge cases</span></div>
+          <div class="session-item"><span class="session-num">13</span><span>Responsive design and accessibility</span></div>
+          <div class="session-item"><span class="session-num">14</span><span>Performance optimization and caching</span></div>
+
+          <div class="session-phase">Phase 5: Testing &amp; Deployment</div>
+          <div class="session-item"><span class="session-num">15</span><span>End-to-end tests, cleanup, and deployment prep</span></div>
+        </div>
+
+        <h4>Session Template</h4>
+        <div class="code-block">
+          <div class="code-header">Docs/sessions/session-01.md</div>
+<pre># Session 01 — Project Bootstrap
+## Phase: Foundation
+
+## Goals
+Set up initial project structure and development environment.
+
+## Tasks
+- [ ] Initialize repo
+- [ ] Create Docs structure
+- [ ] Scaffold frontend
+- [ ] Scaffold backend
+- [ ] Create env example
+- [ ] Add formatter/linter
+- [ ] Add base test setup
+
+## Files to Create/Update
+- package.json
+- requirements.txt
+- CLAUDE.md
+- .gitignore
+- Docs/progress.md
+
+## Implementation Notes
+(filled in during/after session)
+
+## Tests
+- npm install && npm run dev
+- pytest
+- npm run lint
+
+## Expected Result
+Project runs locally with no errors.
+
+## Completion Checklist
+- [ ] Structure created
+- [ ] App runs
+- [ ] Docs updated
+- [ ] Test command documented</pre>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

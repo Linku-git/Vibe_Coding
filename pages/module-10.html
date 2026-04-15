@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 10 - Loading One Session at a Time into AI - Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="10">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 10 of 11</span>
+    <h1>Loading One Session at a Time into AI</h1>
+    <p class="hero-sub">Run AI in a controlled, focused way - one session, one goal, one validation cycle.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+        <div class="two-col">
+          <div class="card card-wrong">
+            <h3>&#10007; Wrong Way</h3>
+            <div class="prompt-block" style="background:var(--red-bg)">
+              <pre>"Build the whole app"</pre>
+            </div>
+          </div>
+          <div class="card card-right">
+            <h3>&#10003; Right Way</h3>
+            <div class="prompt-block" style="background:var(--green-bg)">
+              <pre>"Read Docs/prd.md, Docs/agents.md, and
+Docs/sessions/session-03.md.
+Complete only session 03.
+Run the required tests.
+Update all relevant docs."</pre>
+            </div>
+          </div>
+        </div>
+
+        <h4>Execution Prompt — Codex / Antigravity</h4>
+        <div class="prompt-block">
+<pre>Read:
+- Docs/prd.md
+- Docs/agents.md
+- Docs/architecture.md
+- Docs/testing-strategy.md
+- Docs/sessions/session-03.md
+
+Complete only Session 03.
+
+Requirements:
+- follow the PRD and agent rules
+- make small safe changes
+- do not implement work from later sessions
+- run relevant local tests
+- report files changed
+- report errors and fixes
+- update:
+  - Docs/progress.md
+  - Docs/api-routes.md if changed
+  - Docs/frontend-pages.md if changed
+  - Docs/readme.md if setup changed
+  - Docs/sessions/session-03.md with notes and results</pre>
+        </div>
+
+        <h4>Execution — Claude Code</h4>
+        <div class="info-box info-claude">
+          <p>With Claude Code, your CLAUDE.md already contains the rules. You can be more concise:</p>
+          <div class="prompt-block" style="background:var(--claude-bg)">
+<pre>Read Docs/sessions/session-03.md and complete it.
+
+Follow all rules in CLAUDE.md.
+Only implement session 03 tasks.
+Run tests and update docs when done.</pre>
+          </div>
+          <p style="margin-top:1rem">Or create a custom slash command:</p>
+          <div class="code-block">
+            <div class="code-header">.claude/commands/run-session.md</div>
+<pre>Read Docs/sessions/session-$ARGUMENTS.md
+
+Complete only this session following CLAUDE.md rules.
+Run all relevant tests.
+Update Docs/progress.md and the session file with:
+- files changed
+- tests run and results
+- errors found and fixes applied
+- pending issues</pre>
+          </div>
+          <p>Then run: <code>claude "/project:run-session 03"</code></p>
+        </div>
+
+        <div class="golden-rule">
+          <strong>Critical Rule:</strong> Always constrain the AI to one session, one goal area, one validation cycle. That is how you avoid chaos.
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

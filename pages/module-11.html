@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 11 - Testing Locally After Each Session - Vibe Coding</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body data-page="modules" data-module-num="11">
+
+<div id="nav-container"></div>
+
+<header class="hero" style="padding:4rem 0 2rem">
+  <div class="hero-content" style="max-width:var(--max-w);margin:0 auto;padding:0 1.5rem">
+    <span class="hero-badge">Module 11 of 11</span>
+    <h1>Testing Locally After Each Session</h1>
+    <p class="hero-sub">Make testing part of the workflow, not an afterthought.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="video-section">
+      <p>Video coming soon</p>
+    </div>
+
+    <div class="module-content">
+        <h4>Minimum Testing Loop</h4>
+        <div class="steps">
+          <div class="step"><span class="step-num">1</span><div>Run the app</div></div>
+          <div class="step"><span class="step-num">2</span><div>Check the feature manually</div></div>
+          <div class="step"><span class="step-num">3</span><div>Run automated tests</div></div>
+          <div class="step"><span class="step-num">4</span><div>Check console and terminal errors</div></div>
+          <div class="step"><span class="step-num">5</span><div>Update docs with results</div></div>
+        </div>
+
+        <div class="three-col">
+          <div class="test-card">
+            <h4>Frontend Checks</h4>
+            <ul>
+              <li>Page loads</li>
+              <li>No console errors</li>
+              <li>Forms validate</li>
+              <li>Buttons work</li>
+              <li>Navigation works</li>
+              <li>Empty states work</li>
+              <li>Error states work</li>
+            </ul>
+          </div>
+          <div class="test-card">
+            <h4>Backend Checks</h4>
+            <ul>
+              <li>Server starts</li>
+              <li>Routes respond</li>
+              <li>Bad input rejected</li>
+              <li>DB reads/writes work</li>
+              <li>Auth/permissions work</li>
+              <li>No major log errors</li>
+            </ul>
+          </div>
+          <div class="test-card">
+            <h4>Full-Stack Checks</h4>
+            <ul>
+              <li>Frontend-backend connection</li>
+              <li>API responses correct</li>
+              <li>Auth flow end-to-end</li>
+              <li>CRUD flow complete</li>
+              <li>Validation flow works</li>
+              <li>Edge cases handled</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>testing-strategy.md Template</h4>
+        <div class="code-block">
+          <div class="code-header">Docs/testing-strategy.md</div>
+<pre># Local Run Commands
+
+## Frontend
+npm install
+npm run dev
+
+## Backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+flask run
+
+## Tests
+npm test
+pytest
+
+## Lint
+npm run lint
+ruff check .</pre>
+        </div>
+
+        <h4>Claude Code Testing Integration</h4>
+        <div class="info-box info-claude">
+          <p>Claude Code can run tests directly in your terminal. Use hooks for automated testing:</p>
+          <div class="code-block">
+            <div class="code-header">.claude/settings.json — hooks example</div>
+<pre>{
+  "hooks": {
+    "postToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "command": "npm run lint --quiet"
+      }
+    ]
+  }
+}</pre>
+          </div>
+          <p>This automatically lints after every file edit, catching issues immediately.</p>
+        </div>
+    </div>
+
+    <div id="module-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-container"></div>
+
+<script src="../js/components.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>
